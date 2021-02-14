@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ivs-projekt", "ivs-projekt\ivs-projekt.csproj", "{313F8DD0-DACF-4518-AB7E-8D75F1B6D353}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "ivs-projekt\GUI.csproj", "{313F8DD0-DACF-4518-AB7E-8D75F1B6D353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math", "Math\Math.csproj", "{F159B3AC-C46B-41AF-A851-02A2FF8AA97A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{D379C881-AA7C-4226-8F51-A1F7B9C6CAA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{313F8DD0-DACF-4518-AB7E-8D75F1B6D353}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{313F8DD0-DACF-4518-AB7E-8D75F1B6D353}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{313F8DD0-DACF-4518-AB7E-8D75F1B6D353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F159B3AC-C46B-41AF-A851-02A2FF8AA97A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F159B3AC-C46B-41AF-A851-02A2FF8AA97A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F159B3AC-C46B-41AF-A851-02A2FF8AA97A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F159B3AC-C46B-41AF-A851-02A2FF8AA97A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D379C881-AA7C-4226-8F51-A1F7B9C6CAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D379C881-AA7C-4226-8F51-A1F7B9C6CAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D379C881-AA7C-4226-8F51-A1F7B9C6CAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D379C881-AA7C-4226-8F51-A1F7B9C6CAA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
