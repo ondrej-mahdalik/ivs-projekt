@@ -12,7 +12,6 @@ namespace ivs_projekt
 
             // Ukazka pouziti
             var result = MathClass.Add(5, 6);
-            // a change
         }
     }
 }
