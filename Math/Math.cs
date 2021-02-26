@@ -58,5 +58,16 @@
         }
 
         // TODO - dalsi funkce atd.
+
+        /// <summary>
+        /// Returns absolute value of input number.
+        /// </summary>
+        public static double Abs(double input)
+        {
+            if (input < 0)
+                return -input;
+            else
+                return input;
+        }
     }
 }
