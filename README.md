@@ -8,7 +8,7 @@ Autori
 
 undefined
 - xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
+- xdenka00 Aram Denk 
 - xlogin03 jmeno prijmeni 
 - xlogin04 jmeno prijmeni 
 
