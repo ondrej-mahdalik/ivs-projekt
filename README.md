@@ -9,7 +9,7 @@ Autori
 undefined
 - xlogin01 jmeno prijmeni 
 - xdenka00 Aram Denk 
-- xlogin03 jmeno prijmeni 
+- xvacla35 Jan Václavík 
 - xlogin04 jmeno prijmeni 
 
 Licence
