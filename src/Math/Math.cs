@@ -14,7 +14,7 @@
         }
 
         /// <summary>
-        /// Adds one number to another. (Ano, je to zbytečná, ale ať jsou všechny operace v této knihovně a nic v GUI).
+        /// Adds one number to another.
         /// </summary>
         /// <param name="inputA">Number to proccess</param>
         /// <param name="inputB">Number to proccess</param>
@@ -62,6 +62,7 @@
         /// <summary>
         /// Returns absolute value of input number.
         /// </summary>
+        /// <returns>Result</returns>
         public static double Abs(double input)
         {
             if (input < 0)
