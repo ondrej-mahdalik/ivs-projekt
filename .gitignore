@@ -14,21 +14,22 @@
 *.userprefs
 
 # Build results
-bin/[Dd]ebug/
-bin/[Dd]ebugPublic/
-bin/[Rr]elease/
-bin/[Rr]eleases/
-bin/x64/
-bin/x86/
-bin/[Aa][Rr][Mm]/
-bin/[Aa][Rr][Mm]64/
-bin/bld/
-bin/[Bb]in/
-bin/[Oo]bj/
-bin/[Ll]og/
+src/bin/[Dd]ebug/
+src/bin/[Dd]ebugPublic/
+src/bin/[Rr]elease/
+src/bin/[Rr]eleases/
+src/bin/x64/
+src/bin/x86/
+src/bin/[Aa][Rr][Mm]/
+src/bin/[Aa][Rr][Mm]64/
+src/bin/bld/
+src/bin/[Bb]in/
+src/bin/[Oo]bj/
+src/bin/[Ll]og/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+src/.vs
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -36,25 +37,25 @@ bin/[Ll]og/
 Generated\ Files/
 
 # MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
+src/[Tt]est[Rr]esult*/
+src/[Bb]uild[Ll]og.*
 
 # NUNIT
 *.VisualState.xml
 TestResult.xml
 
 # Build Results of an ATL Project
-[Dd]ebugPS/
-[Rr]eleasePS/
+src/[Dd]ebugPS/
+src/[Rr]eleasePS/
 dlldata.c
 
 # Benchmark Results
-BenchmarkDotNet.Artifacts/
+src/BenchmarkDotNet.Artifacts/
 
 # .NET Core
 project.lock.json
 project.fragment.lock.json
-artifacts/
+src/artifacts/
 
 # StyleCop
 StyleCopReport.xml
@@ -92,7 +93,7 @@ StyleCopReport.xml
 _Chutzpah*
 
 # Visual C++ cache files
-ipch/
+src/ipch/
 *.aps
 *.ncb
 *.opendb
@@ -118,7 +119,7 @@ $tf/
 *.gpState
 
 # ReSharper is a .NET coding add-in
-_ReSharper*/
+src/_ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
@@ -146,26 +147,26 @@ nCrunchTemp_*
 
 # MightyMoose
 *.mm.*
-AutoTest.Net/
+src/AutoTest.Net/
 
 # Web workbench (sass)
-.sass-cache/
+src/.sass-cache/
 
 # Installshield output folder
-[Ee]xpress/
+src/[Ee]xpress/
 
 # DocProject is a documentation generator add-in
-DocProject/buildhelp/
-DocProject/Help/*.HxT
-DocProject/Help/*.HxC
-DocProject/Help/*.hhc
-DocProject/Help/*.hhk
-DocProject/Help/*.hhp
-DocProject/Help/Html2
-DocProject/Help/html
+src/DocProject/buildhelp/
+src/DocProject/Help/*.HxT
+src/DocProject/Help/*.HxC
+src/DocProject/Help/*.hhc
+src/DocProject/Help/*.hhk
+src/DocProject/Help/*.hhp
+src/DocProject/Help/Html2
+src/DocProject/Help/html
 
 # Click-Once directory
-publish/
+src/publish/
 
 # Publish Web Output
 *.[Pp]ublish.xml
@@ -178,7 +179,7 @@ publish/
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
 # checkin your Azure Web App publish settings, but sensitive information contained
 # in these scripts will be unencrypted
-PublishScripts/
+src/PublishScripts/
 
 # NuGet Packages
 *.nupkg
@@ -193,16 +194,16 @@ PublishScripts/
 *.nuget.targets
 
 # Microsoft Azure Build Output
-csx/
+src/csx/
 *.build.csdef
 
 # Microsoft Azure Emulator
-ecf/
-rcf/
+src/ecf/
+src/rcf/
 
 # Windows Store app package directories and files
-AppPackages/
-BundleArtifacts/
+src/AppPackages/
+src/BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
 *.appx
@@ -285,18 +286,18 @@ node_modules/
 _Pvt_Extensions
 
 # Paket dependency manager
-.paket/paket.exe
+src/.paket/paket.exe
 paket-files/
 
 # FAKE - F# Make
-.fake/
+src/.fake/
 
 # JetBrains Rider
-.idea/
+src/.idea/
 *.sln.iml
 
 # CodeRush personal settings
-.cr/personal
+src/.cr/personal
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
