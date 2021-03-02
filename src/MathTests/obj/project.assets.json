@@ -5739,11 +5739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\MathTests\\MathTests.csproj",
+      "projectUniqueName": "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\MathTests\\MathTests.csproj",
       "projectName": "MathTests",
-      "projectPath": "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\MathTests\\MathTests.csproj",
+      "projectPath": "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\MathTests\\MathTests.csproj",
       "packagesPath": "C:\\Users\\Domaci\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\MathTests\\obj\\",
+      "outputPath": "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\MathTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5763,8 +5763,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj": {
-              "projectPath": "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj"
+            "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj": {
+              "projectPath": "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj"
             }
           }
         }

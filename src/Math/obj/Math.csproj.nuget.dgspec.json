@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj": {}
+    "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj": {
+    "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj",
+        "projectUniqueName": "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj",
         "projectName": "Math",
-        "projectPath": "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj",
+        "projectPath": "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\Math\\Math.csproj",
         "packagesPath": "C:\\Users\\Domaci\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Domaci\\Source\\Repos\\honzav23\\ivs-projekt\\src\\Math\\obj\\",
+        "outputPath": "C:\\Users\\Domaci\\source\\repos\\honzav23\\ivs-projekt\\src\\Math\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
