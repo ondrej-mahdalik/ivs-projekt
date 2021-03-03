@@ -15,7 +15,7 @@ undefined
 Konvence
 --------
 
-- Poznámky v kódu psát anglicky.
+- Poznámky, názvy proměnných, tříd a metod (zkrátka všechno v kódu) psát anglicky.
 - Komentovat všechny veřejné funkce matematické knihovny (pomocí ///, VS pak vygeneruje standardní popis i s atributy)
 - Proměnné a parametry funkcí psát pomocí camelCase
 - Názvy metod a tříd psát pomocí UpperCamelCase (začíná velkým písmenem)
