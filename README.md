@@ -10,7 +10,7 @@ undefined
 - xmahda14 Ondřej Mahdalík 
 - xdenka00 Aram Denk 
 - xvacla35 Jan Václavík 
-- xlogin04 jmeno prijmeni 
+- xvrana29 Alexandr Vrána
 
 Konvence
 --------
