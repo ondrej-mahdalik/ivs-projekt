@@ -1,9 +1,0 @@
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\bin\Debug\netstandard2.0\Math.deps.json
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\bin\Debug\netstandard2.0\Math.dll
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\bin\Debug\netstandard2.0\Math.pdb
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\obj\Debug\netstandard2.0\Math.csprojAssemblyReference.cache
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\obj\Debug\netstandard2.0\Math.AssemblyInfoInputs.cache
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\obj\Debug\netstandard2.0\Math.AssemblyInfo.cs
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\obj\Debug\netstandard2.0\Math.csproj.CoreCompileInputs.cache
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\obj\Debug\netstandard2.0\Math.dll
-C:\Users\Domaci\Source\Repos\honzav23\ivs-projekt\src\Math\obj\Debug\netstandard2.0\Math.pdb
