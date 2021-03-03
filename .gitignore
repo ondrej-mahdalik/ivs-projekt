@@ -14,22 +14,21 @@
 *.userprefs
 
 # Build results
-src/bin/[Dd]ebug/
-src/bin/[Dd]ebugPublic/
-src/bin/[Rr]elease/
-src/bin/[Rr]eleases/
-src/bin/x64/
-src/bin/x86/
-src/bin/[Aa][Rr][Mm]/
-src/bin/[Aa][Rr][Mm]64/
-src/bin/bld/
-src/bin/[Bb]in/
-src/bin/[Oo]bj/
-src/bin/[Ll]og/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
-src/.vs
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -37,25 +36,25 @@ src/.vs
 Generated\ Files/
 
 # MSTest test Results
-src/[Tt]est[Rr]esult*/
-src/[Bb]uild[Ll]og.*
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
 
 # NUNIT
 *.VisualState.xml
 TestResult.xml
 
 # Build Results of an ATL Project
-src/[Dd]ebugPS/
-src/[Rr]eleasePS/
+[Dd]ebugPS/
+[Rr]eleasePS/
 dlldata.c
 
 # Benchmark Results
-src/BenchmarkDotNet.Artifacts/
+BenchmarkDotNet.Artifacts/
 
 # .NET Core
 project.lock.json
 project.fragment.lock.json
-src/artifacts/
+artifacts/
 
 # StyleCop
 StyleCopReport.xml
@@ -93,7 +92,7 @@ StyleCopReport.xml
 _Chutzpah*
 
 # Visual C++ cache files
-src/ipch/
+ipch/
 *.aps
 *.ncb
 *.opendb
@@ -119,7 +118,7 @@ $tf/
 *.gpState
 
 # ReSharper is a .NET coding add-in
-src/_ReSharper*/
+_ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
@@ -147,26 +146,26 @@ nCrunchTemp_*
 
 # MightyMoose
 *.mm.*
-src/AutoTest.Net/
+AutoTest.Net/
 
 # Web workbench (sass)
-src/.sass-cache/
+.sass-cache/
 
 # Installshield output folder
-src/[Ee]xpress/
+[Ee]xpress/
 
 # DocProject is a documentation generator add-in
-src/DocProject/buildhelp/
-src/DocProject/Help/*.HxT
-src/DocProject/Help/*.HxC
-src/DocProject/Help/*.hhc
-src/DocProject/Help/*.hhk
-src/DocProject/Help/*.hhp
-src/DocProject/Help/Html2
-src/DocProject/Help/html
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
 
 # Click-Once directory
-src/publish/
+publish/
 
 # Publish Web Output
 *.[Pp]ublish.xml
@@ -179,7 +178,7 @@ src/publish/
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
 # checkin your Azure Web App publish settings, but sensitive information contained
 # in these scripts will be unencrypted
-src/PublishScripts/
+PublishScripts/
 
 # NuGet Packages
 *.nupkg
@@ -194,16 +193,16 @@ src/PublishScripts/
 *.nuget.targets
 
 # Microsoft Azure Build Output
-src/csx/
+csx/
 *.build.csdef
 
 # Microsoft Azure Emulator
-src/ecf/
-src/rcf/
+ecf/
+rcf/
 
 # Windows Store app package directories and files
-src/AppPackages/
-src/BundleArtifacts/
+AppPackages/
+BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
 *.appx
@@ -286,18 +285,18 @@ node_modules/
 _Pvt_Extensions
 
 # Paket dependency manager
-src/.paket/paket.exe
+.paket/paket.exe
 paket-files/
 
 # FAKE - F# Make
-src/.fake/
+.fake/
 
 # JetBrains Rider
-src/.idea/
+.idea/
 *.sln.iml
 
 # CodeRush personal settings
-src/.cr/personal
+.cr/personal
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
