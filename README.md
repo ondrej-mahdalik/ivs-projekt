@@ -1,9 +1,9 @@
-Prostredi
+Prostředí
 ---------
 
 Windows 64bit
 
-Autori
+Autoři
 ------
 
 undefined
@@ -24,4 +24,4 @@ Konvence
 Licence
 -------
 
-Tento program je poskytovan pod licenci GNU GPL v3.
+Tento program je poskytován pod licencí GNU GPL v3.
