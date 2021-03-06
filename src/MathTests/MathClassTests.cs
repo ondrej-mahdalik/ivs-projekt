@@ -50,11 +50,11 @@ namespace Math.Tests
                 Assert.AreEqual(results[i], MathClass.Multiply(firstNums[i], secondNums[i]));
             }
         }
-
+ 
         [TestMethod()]    
         public void DivisionTest() 
         {
-               
+      
             double result = MathClass.Divide(num2, num1);            
             double expected = 2;        
             Assert.AreEqual(result, expected);
@@ -62,6 +62,56 @@ namespace Math.Tests
             result = MathClass.Divide(-53, -5);
             expected = 10.6;
             Assert.AreEqual(result, expected);
+        }
+
+        [TestMethod()]
+        public void FactorialTest()
+        {
+            double[] firstNums = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            double[] results = { 1, 1, 2, 3, 24, 120, 720, 5040, 40320, 362880 };
+            for (int i = 0; i < firstNums.Length; i++) {
+                Assert.AreEqual(results[i], MathClass.Factorial(firstNums[i]));
+            }
+            Assert.ThrowsException<ArithmeticException>(() => MathClass.Factorial(-4));
+            Assert.ThrowsException<ArithmeticException>(() => MathClass.Factorial(2.46));
+            Assert.ThrowsException<ArithmeticException>(() => MathClass.Factorial(-6.8));
+
+        }
+        [TestMethod()]
+        public void PowerTest()
+        {
+            double[] bases = { 0, -4, 1, 25, 46.33, 100, -68.29 };
+            int exponent = 2;
+            double[] results = { 0, 16, 1, 625, 2146.4687, 10000, 4633.5241 };
+            for (int i = 0; i < bases.Length; i++) {
+                Assert.AreEqual(results[i], MathClass.Power(bases[i], exponent));
+            }
+            exponent = 3;
+            double[] results2 = {0, -64, 1, 15625, 99445.904137, 100000, -318472.060789};
+            for (int j = 0; j < bases.Length; j++) {
+                Assert.AreEqual(results2[j], MathClass.Power(bases[j], exponent));
+            }
+            Assert.ThrowsException<ArgumentException>(() => MathClass.Power(2, -2));
+            Assert.ThrowsException<ArgumentException>(() => MathClass.Power(2, 0));
+        }
+        [TestMethod()]
+
+        public void SqrtTest()
+        {
+            double[] bases = { 0, 4, 1, 25, 132.25, 100, 1000000 };
+            int exponent = 2;
+            double[] results = { 0, 2, 1, 5, 11.5, 10, 1000 };
+            for (int i = 0; i < bases.Length; i++) {
+                Assert.AreEqual(results[i], MathClass.SquareRoot(bases[i], exponent));
+            }
+            Assert.ThrowsException<ArithmeticException>(() => MathClass.SquareRoot(-6, 2));
+            exponent = 3;
+            double[] bases2 = { 27, -27, 22.38, 11209.345272, 0, -1, 1520.875 };
+            double[] results2 = { 3, -3, 22.38, 0, -1, 11.5};
+            for (int j = 0; j < bases2.Length; j++) {
+                Assert.AreEqual(results2[j], MathClass.SquareRoot(bases2[j], exponent));
+            }
+
         }
     }
 }

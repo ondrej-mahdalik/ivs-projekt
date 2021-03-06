@@ -1,5 +1,6 @@
 ﻿namespace Math
 {
+   
     public class MathClass
     {
         /// <summary>
@@ -36,7 +37,7 @@
         }
 
         /// <summary>
-        /// Divides one number from another.
+        /// Divides one number by another.
         /// </summary>
         /// <param name="inputA"></param>
         /// <param name="inputB"></param>
@@ -57,10 +58,9 @@
             return inputA * inputB;
         }
 
-        // TODO - dalsi funkce atd.
 
         /// <summary>
-        /// Returns absolute value of input number.
+        /// Returns the absolute value of the input number.
         /// </summary>
         /// <returns>Result</returns>
         public static double Abs(double input)
@@ -70,5 +70,26 @@
             else
                 return input;
         }
+        /// <summary>
+        /// Returns a factorial of the input number.
+        /// </summary>
+        /// <returns>Result</returns>
+        public static double Factorial(double input)
+        {
+            // TODO
+            return input;
+        }
+        public static double Power(double input, int exponent)
+        {
+            // TODO
+            return input;
+        }
+        
+        public static double SquareRoot(double input, int exponent)
+        {
+            // TODO
+            return input;
+        }
+
     }
 }
