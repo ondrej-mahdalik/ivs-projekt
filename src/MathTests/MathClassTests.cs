@@ -116,8 +116,8 @@ namespace Math.Tests
         
         public void LogarithmTest()
         {
-            double[] firstNums = { 1, 10, 100, 1000, 50, 300, 655 };
-            double[] results = { 0, 1, 2, 3, 1.698970004, 2.477121255, 2.816241999 };
+            double[] firstNums = { 1, 10, 100, 1000, 50, 300, 655, 2000 };
+            double[] results = { 0, 1, 2, 3, 1.698970004, 2.477121255, 2.816241999, 3.3010299996 };
             for (int i = 0; i < firstNums.Length; i++) {
                 Assert.AreEqual(results[i], (MathClass.Logarithm(firstNums[i])));
             }
