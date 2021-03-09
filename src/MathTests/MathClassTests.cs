@@ -121,10 +121,6 @@ namespace Math.Tests
             for (int i = 0; i < firstNums.Length; i++) {
                 Assert.AreEqual(results[i], (MathClass.Logarithm(firstNums[i])));
             }
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.Logarithm(0));
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.Logarithm(-1));
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.Logarithm(-1500.5654));
-
         }
 
     }
