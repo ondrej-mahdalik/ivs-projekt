@@ -15,14 +15,14 @@ namespace Math.Tests
         [TestMethod()]
           
         /// <summary>
-        /// Tests for additon.
+        /// Tests for all mathematic operations (+, -, *, /, factorial, power, square root, absolute value, logarithm).
         /// </summary>
         /// <returns>Test passes when all results are equal to all the expectations otherwise fails.</returns>
-        public void AdditionTestWithPositiveNumbers()
+        public void AdditionTest()
         {
-            double[] firstNums = { 5, 8, 1, 12, 22, 1874, 14, 89345.568, 10048456, 45424141 };
-            double[] secondNums = { 97, 45, 4, 48, 0, 1, 64, 15478.7452, 97711, 1124764545 };
-            double[] results = { 102, 53, 5, 60, 22, 1875, 78, 104824.3132, 10146167, 1170188686 };
+            double[] firstNums = { -5, 8, 1, 12, 22, -1874, 14, 89345.568, 10048456, -45424141 };
+            double[] secondNums = { 97, 45, -4, 48, 0, 1, 64, 15478.7452, 97711, 1124764545 };
+            double[] results = { 92, 53, -3, 60, 22, -1873, 78, 104824.3132, 10146167, 1079340404 };
             for (int i = 0; i < firstNums.Length; i++) {
                 Assert.AreEqual(results[i], MathClass.Add(firstNums[i], secondNums[i]));
             }
@@ -95,7 +95,6 @@ namespace Math.Tests
             Assert.ThrowsException<ArgumentException>(() => MathClass.Power(2, 0));
         }
         [TestMethod()]
-
         public void SqrtTest()
         {
             double[] bases = { 0, 4, 1, 25, 132.25, 100, 1000000 };
@@ -113,5 +112,16 @@ namespace Math.Tests
             }
 
         }
+        [TestMethod()]
+        
+        public void LogarithmTest()
+        {
+            double[] firstNums = { 1, 10, 100, 1000, 50, 300, 655 };
+            double[] results = { 0, 1, 2, 3, 1.698970004, 2.477121255, 2.816241999 };
+            for (int i = 0; i < firstNums.Length; i++) {
+                Assert.AreEqual(results[i], (MathClass.Logarithm(firstNums[i])));
+            }
+        }
+
     }
 }

@@ -79,13 +79,36 @@
             // TODO
             return input;
         }
+        /// <summary>
+        /// Returns input^exponent.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="exponent"></param>
+        /// <returns>Result</returns>
         public static double Power(double input, int exponent)
         {
             // TODO
             return input;
         }
-        
+        /// <summary>
+        /// Returns exponent-th square root of an input.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="exponent"></param>
+        /// <returns>Result</returns>
         public static double SquareRoot(double input, int exponent)
+        {
+            // TODO
+            return input;
+        }
+
+        /// <summary>
+        /// Returns decadic logarithm of an input.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="exponent"></param>
+        /// <returns>Result</returns>
+        public static double Logarithm(double input)
         {
             // TODO
             return input;
