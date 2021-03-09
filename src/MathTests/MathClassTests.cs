@@ -21,8 +21,8 @@ namespace Math.Tests
         public void AdditionTest()
         {
             double[] firstNums = { -5, 8, 1, 12, 22, -1874, 14, 89345.568, 10048456, -45424141 };
-            double[] secondNums = { 97, 45, -4, 48, 0, 1, 64, 15478.7452, 97711, 1124764545 };
-            double[] results = { 92, 53, -3, 60, 22, -1873, 78, 104824.3132, 10146167, 1079340404 };
+            double[] secondNums = { 97, -45, -4, 48, 0, 1, 64, 15478.7452, 97711, 1124764545 };
+            double[] results = { 92, -37, -3, 60, 22, -1873, 78, 104824.3132, 10146167, 1079340404 };
             for (int i = 0; i < firstNums.Length; i++) {
                 Assert.AreEqual(results[i], MathClass.Add(firstNums[i], secondNums[i]));
             }
