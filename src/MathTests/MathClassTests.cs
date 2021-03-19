@@ -58,7 +58,7 @@ namespace Math.Tests
             double result = MathClass.Divide(num2, num1);            
             double expected = 2;        
             Assert.AreEqual(result, expected);
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.Divide(num1, 0));
+            Assert.ThrowsException<DivideByZeroException>(() => MathClass.Divide(num1, 0));
             result = MathClass.Divide(-53, -5);
             expected = 10.6;
             Assert.AreEqual(result, expected);
@@ -68,13 +68,13 @@ namespace Math.Tests
         public void FactorialTest()
         {
             double[] firstNums = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            double[] results = { 1, 1, 2, 3, 24, 120, 720, 5040, 40320, 362880 };
+            double[] results = { 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880 };
             for (int i = 0; i < firstNums.Length; i++) {
                 Assert.AreEqual(results[i], MathClass.Factorial(firstNums[i]));
             }
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.Factorial(-4));
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.Factorial(2.46));
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.Factorial(-6.8));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(-4));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(2.46));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(-6.8));
 
         }
         [TestMethod()]
@@ -82,42 +82,43 @@ namespace Math.Tests
         {
             double[] bases = { 0, -4, 1, 25, 46.33, 100, -68.29 };
             int exponent = 2;
-            double[] results = { 0, 16, 1, 625, 2146.4687, 10000, 4633.5241 };
+            double[] results = { 0, 16, 1, 625, 2146.4689, 10000, 4663.5241000000005 };
             for (int i = 0; i < bases.Length; i++) {
                 Assert.AreEqual(results[i], MathClass.Power(bases[i], exponent));
             }
             exponent = 3;
-            double[] results2 = {0, -64, 1, 15625, 99445.904137, 100000, -318472.060789};
+            double[] results2 = {0, -64, 1, 15625, 99445.90413699999, 1000000, -318472.06078900007};
             for (int j = 0; j < bases.Length; j++) {
                 Assert.AreEqual(results2[j], MathClass.Power(bases[j], exponent));
             }
-            Assert.ThrowsException<ArgumentException>(() => MathClass.Power(2, -2));
-            Assert.ThrowsException<ArgumentException>(() => MathClass.Power(2, 0));
+            Assert.AreEqual(1,MathClass.Power(2, 0));
+            Assert.ThrowsException<NotFiniteNumberException>(() => MathClass.Power(0, -2));
+            
         }
         [TestMethod()]
-        public void SqrtTest()
+        public void RootTest()
         {
             double[] bases = { 0, 4, 1, 25, 132.25, 100, 1000000 };
             int exponent = 2;
             double[] results = { 0, 2, 1, 5, 11.5, 10, 1000 };
             for (int i = 0; i < bases.Length; i++) {
-                Assert.AreEqual(results[i], MathClass.SquareRoot(bases[i], exponent));
+                Assert.AreEqual(results[i], MathClass.Root(bases[i], exponent));
             }
-            Assert.ThrowsException<ArithmeticException>(() => MathClass.SquareRoot(-6, 2));
+            Assert.ThrowsException<ArithmeticException>(() => MathClass.Root(-6, 2));
             exponent = 3;
             double[] bases2 = { 27, -27, 22.38, 11209.345272, 0, -1, 1520.875 };
             double[] results2 = { 3, -3, 22.38, 0, -1, 11.5};
             for (int j = 0; j < bases2.Length; j++) {
-                Assert.AreEqual(results2[j], MathClass.SquareRoot(bases2[j], exponent));
+                Assert.AreEqual(results2[j], MathClass.Root(bases2[j], exponent));
             }
-
+            
         }
         [TestMethod()]
         
         public void LogarithmTest()
         {
             double[] firstNums = { 1, 10, 100, 1000, 50, 300, 655, 2000 };
-            double[] results = { 0, 1, 2, 3, 1.698970004, 2.477121255, 2.816241999, 3.3010299996 };
+            double[] results = { 0, 1, 2, 3, 1.6989700043360187, 2.4771212547196626, 2.816241299991783, 3.3010299956639813 };
             for (int i = 0; i < firstNums.Length; i++) {
                 Assert.AreEqual(results[i], (MathClass.Logarithm(firstNums[i])));
             }

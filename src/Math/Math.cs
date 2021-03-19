@@ -113,10 +113,10 @@ namespace Math
         /// <param name="radicant"></param>
         /// <param name="index"></param>
         /// <returns>Result</returns>
-        public static double SquareRoot(double radicant, double index)
+        public static double Root(double radicant, double index)
         {
-            if(index == 0) {
-                throw new DivideByZeroException();
+            if(index == 0 || (index % 2 == 0 &&  radicant < 0)) {
+                throw new ArithmeticException();
             }
             return System.Math.Pow(radicant,1.0 / index);
         }
@@ -128,7 +128,7 @@ namespace Math
         /// <returns>Result</returns>
         public static double Logarithm(double input)
         {
-            double result = System.Math.Log(input, 10);
+            double result = System.Math.Log10(input);
             if (double.IsInfinity(result) || double.IsNaN(result)) {
                 throw new NotFiniteNumberException();
             }
