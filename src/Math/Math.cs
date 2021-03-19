@@ -119,7 +119,7 @@ namespace Math
         }
 
         /// <summary>
-        /// Returns the logarithm of input in specified base.
+        /// Returns the decadic logarithm of input.
         /// </summary>
         /// <param name="input"></param>
         /// <returns>Result</returns>
