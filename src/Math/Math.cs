@@ -122,11 +122,10 @@ namespace Math
         /// Returns the logarithm of input in specified base.
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="logBase"></param>
         /// <returns>Result</returns>
-        public static double Logarithm(double input, double logBase)
+        public static double Logarithm(double input)
         {
-            double result = System.Math.Log(input, logBase);
+            double result = System.Math.Log(input, 10);
             if (double.IsInfinity(result) || double.IsNaN(result)) {
                 throw new NotFiniteNumberException();
             }
