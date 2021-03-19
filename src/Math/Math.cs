@@ -45,6 +45,9 @@ namespace Math
         /// <returns>Result</returns>
         public static double Divide(double inputA, double inputB)
         {
+            if(inputB == 0) {
+                throw new DivideByZeroException();
+            }
             return inputA / inputB;
         }
 
