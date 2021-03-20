@@ -75,17 +75,19 @@ namespace Math.Tests
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(-4));
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(2.46));
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(-6.8));
-
         }
+      
         [TestMethod()]
         public void PowerTest()
         {
             double[] bases = { 0, -4, 1, 25, 46.33, 100, -68.29 };
             int exponent = 2;
             double[] results = { 0, 16, 1, 625, 2146.4689, 10000, 4663.5241000000005 };
+          
             for (int i = 0; i < bases.Length; i++) {
                 Assert.AreEqual(results[i], MathClass.Power(bases[i], exponent));
             }
+          
             exponent = 3;
             double[] results2 = {0, -64, 1, 15625, 99445.90413699999, 1000000, -318472.06078900007};
             for (int j = 0; j < bases.Length; j++) {
@@ -93,8 +95,8 @@ namespace Math.Tests
             }
             Assert.AreEqual(1,MathClass.Power(2, 0));
             Assert.ThrowsException<NotFiniteNumberException>(() => MathClass.Power(0, -2));
-            
         }
+      
         [TestMethod()]
         public void RootTest()
         {
@@ -104,6 +106,7 @@ namespace Math.Tests
             for (int i = 0; i < bases.Length; i++) {
                 Assert.AreEqual(results[i], MathClass.Root(bases[i], exponent));
             }
+          
             Assert.ThrowsException<ArithmeticException>(() => MathClass.Root(-6, 2));
             exponent = 3;
             double[] bases2 = { 27, -27, 22.38, 11209.345272, 0, -1, 1520.875 };
@@ -111,10 +114,9 @@ namespace Math.Tests
             for (int j = 0; j < bases2.Length; j++) {
                 Assert.AreEqual(results2[j], MathClass.Root(bases2[j], exponent));
             }
-            
         }
+      
         [TestMethod()]
-        
         public void LogarithmTest()
         {
             double[] firstNums = { 1, 10, 100, 1000, 50, 300, 655, 2000 };

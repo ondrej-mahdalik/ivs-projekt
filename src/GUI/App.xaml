@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:ivs_projekt"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Grid" x:Key="numGridStyle" >
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button" x:Key="numButtonStyle" >
+            <Setter Property="Width" Value="40px"/>
+            <Setter Property="Height" Value="40px"/>
+        </Style>
     </Application.Resources>
 </Application>

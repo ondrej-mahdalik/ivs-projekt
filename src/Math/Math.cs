@@ -76,7 +76,6 @@ namespace Math
                 return input;
         }
         /// <summary>
-
         /// Returns a factorial of the input number. Only supports whole numbers.
         /// </summary>
         /// <param name="input"></param>
@@ -98,7 +97,6 @@ namespace Math
         /// <param name="input"></param>
         /// <param name="exponent"></param>
         /// <returns>Result</returns>
-
         public static double Power(double input, double exponent)
         {
 

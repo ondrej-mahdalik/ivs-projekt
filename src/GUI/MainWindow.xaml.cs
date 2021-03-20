@@ -12,5 +12,10 @@ namespace ivs_projekt
             // Ukazka pouziti
             var result = MathClass.Add(5, 6);
         }
+
+        private void NumButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
