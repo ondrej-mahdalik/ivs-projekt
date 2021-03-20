@@ -5,9 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivs_projekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Kalkulátor" Height="600" Width="450">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="434,268,0,0" VerticalAlignment="Top" Width="75"/>
-
+        <Grid Style="{StaticResource numGridStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="buttonNum1" Grid.Row="0" Grid.Column="0" Style="{StaticResource numButtonStyle}" Content="1" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum2" Grid.Row="0" Grid.Column="1" Style="{StaticResource numButtonStyle}" Content="2" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum3" Grid.Row="0" Grid.Column="2" Style="{StaticResource numButtonStyle}" Content="3" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum4" Grid.Row="1" Grid.Column="0" Style="{StaticResource numButtonStyle}" Content="4" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum5" Grid.Row="1" Grid.Column="1" Style="{StaticResource numButtonStyle}" Content="5" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum6" Grid.Row="1" Grid.Column="2" Style="{StaticResource numButtonStyle}" Content="6" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum7" Grid.Row="2" Grid.Column="0" Style="{StaticResource numButtonStyle}" Content="7" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum8" Grid.Row="2" Grid.Column="1" Style="{StaticResource numButtonStyle}" Content="8" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum9" Grid.Row="2" Grid.Column="2" Style="{StaticResource numButtonStyle}" Content="9" Click="NumButtonClick"/>
+            <Button x:Name="buttonNum0" Grid.Row="3" Grid.Column="1" Style="{StaticResource numButtonStyle}" Content="0" Click="NumButtonClick"/>
+        </Grid>
     </Grid>
 </Window>
