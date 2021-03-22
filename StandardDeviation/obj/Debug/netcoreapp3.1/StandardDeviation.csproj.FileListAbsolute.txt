@@ -1,0 +1,16 @@
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\StandardDeviation.exe
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\StandardDeviation.deps.json
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\StandardDeviation.runtimeconfig.json
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\StandardDeviation.runtimeconfig.dev.json
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\StandardDeviation.dll
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\StandardDeviation.pdb
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\Math.dll
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\bin\Debug\netcoreapp3.1\Math.pdb
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.csprojAssemblyReference.cache
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.AssemblyInfoInputs.cache
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.AssemblyInfo.cs
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.csproj.CoreCompileInputs.cache
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.csproj.CopyComplete
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.dll
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.pdb
+C:\Users\Domaci\source\repos\honzav23\ivs-projekt\StandardDeviation\obj\Debug\netcoreapp3.1\StandardDeviation.genruntimeconfig.cache
