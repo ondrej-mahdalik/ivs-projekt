@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "StandardDeviation/1.0.0": {
+        "dependencies": {
+          "Math": "1.0.0"
+        },
+        "runtime": {
+          "StandardDeviation.dll": {}
+        }
+      },
+      "Math/1.0.0": {
+        "runtime": {
+          "Math.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StandardDeviation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Math/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
