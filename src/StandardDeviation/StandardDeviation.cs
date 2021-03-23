@@ -13,7 +13,7 @@ namespace StandardDeviation
         {
             string[] splitInput = input.Split(' ', '\n');
             double[] numbers = new double[splitInput.Length];
-          
+
             //Checking whether the correct input is given
             try
             {
