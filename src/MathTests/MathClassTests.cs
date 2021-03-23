@@ -109,7 +109,7 @@ namespace Math.Tests
           
             Assert.ThrowsException<ArithmeticException>(() => MathClass.Root(-6, 2));
             exponent = 3;
-            double[] bases2 = { 27, -27, 22.38, 11209.345272, 0, -1, 1520.875 };
+            double[] bases2 = { 27, -27, 11209.345272, 0, -1, 1520.875 };
             double[] results2 = { 3, -3, 22.38, 0, -1, 11.5};
             for (int j = 0; j < bases2.Length; j++) {
                 Assert.AreEqual(results2[j], MathClass.Root(bases2[j], exponent));
