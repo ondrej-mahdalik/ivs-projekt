@@ -15,15 +15,12 @@ namespace StandardDeviation
             double[] numbers = new double[splitInput.Length];
 
             //Checking whether the correct input is given
-            try
-            {
-                for (int i = 0; i < splitInput.Length; i++)
-                {
+            try {
+                for (int i = 0; i < splitInput.Length; i++) {
                     numbers[i] = Double.Parse(splitInput[i]);
                 }
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 Console.WriteLine(e.Message);
                 System.Environment.Exit(1);
             }
@@ -39,8 +36,7 @@ namespace StandardDeviation
             double[] numbers = GetNumbersFromString(input);
             double sum = 0;
             double poweredSum = 0;
-            for (int i = 0; i < numbers.Length; i++)
-            {
+            for (int i = 0; i < numbers.Length; i++) {
                 sum += numbers[i];
                 poweredSum += MathClass.Power(numbers[i], 2);
             }
