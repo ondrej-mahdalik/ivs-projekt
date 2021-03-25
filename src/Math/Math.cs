@@ -5,13 +5,105 @@ namespace Math
     public class MathClass
     {
         /// <summary>
+        /// Utility function that returns the precedence of given operator.
+        /// Higher value means higher precedence (is evaluated sooner)
+        /// </summary>
+        /// <param name="ch"></param>
+        /// <returns>Precendence</returns>
+        internal static int Prec(char ch)
+        {
+            switch (ch) {
+                case '+':
+                case '-':
+                    return 1;
+
+                case '*':
+                case '/':
+                    return 2;
+
+                case '^':
+                    return 3;
+            }
+            return -1;
+        }
+        /// <summary>
+        /// Converts expression in infix format to expression in postfix format
+        /// Inserts space between operands and after each operator(excluding the last one)
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Postfix expression</returns>
+        public static string InfixToPostfix(string input)
+        {
+            System.Collections.Generic.Stack<char> stack = new System.Collections.Generic.Stack<char>();
+            System.Collections.Generic.IList<char> operators = new System.Collections.Generic.List<char> { '+', '-', '*', '/' }; //List of supported operators
+            string postfix = "";
+            for (int i = 0; i < input.Length; i++) {
+                char c = input[i];
+                if (Char.IsWhiteSpace(c)) continue; //Ignore whitespace characters
+                if (Char.IsLetterOrDigit(c) || c == '.') { //If character is operand (number or constant) add it to the postfix expression
+                    if (Char.IsLetter(c)) {
+                        if (c != 'π' || c != 'e') {
+                            throw new NotSupportedException();
+                        }
+                    }
+                    postfix += c;
+                }
+                else if (c == '(') {
+                    stack.Push(c);
+                }
+                else if (c == ')') { //Pop from stack to output until '(' is encountered
+                    while (stack.Count > 0 && stack.Peek() != '(') {
+                        postfix += stack.Pop();
+                        if(stack.Peek() != '.' || !Char.IsLetterOrDigit(stack.Peek())) { //Popped last digit of a number, insert space
+                            postfix += ' ';
+                        }
+                    }
+                    if (stack.Count > 0 && stack.Peek() != '(') { // Invalid expression - unclosed brackets
+                        throw new FormatException();
+                    }
+                    else {
+                        stack.Pop(); //Gets rid of the '(' in stack
+                    }
+                }
+                else { //Character is (probably) operator
+                    if (!operators.Contains(c)) { // Char is not a number or one of the supported operators -> throws exception
+                        throw new NotImplementedException();
+                    }
+                    if (stack.Count == 0 || Prec(c) >= Prec(stack.Peek()) || stack.Contains('(')) {
+                        stack.Push(c);
+                   //     stack.Push(' ');
+                        postfix += ' ';
+                    }
+                    else {
+                        while (stack.Count > 0 && Prec(stack.Peek()) >= Prec(c)) {
+                            postfix += stack.Pop();
+                            postfix += ' ';
+                        }
+                        stack.Push(c);
+                    }
+                }
+            }
+            while (stack.Count > 0) {
+                postfix += stack.Pop();
+                if (stack.Count != 0 && ( stack.Peek() != '.' || !Char.IsLetterOrDigit(stack.Peek()) ) ) { //Popped last digit of a number -> insert space into result
+                    postfix += ' ';
+                }
+            }
+            while(postfix.Contains("  ")) { //Replaces multiple spaces with one
+                postfix = postfix.Replace("  ", " ");
+            }
+            return postfix;
+        }
+
+
+        /// <summary>
         /// Processes string input, performs all operations in correct order.
+        /// Uses dot as decimal separator. 
         /// </summary>
         /// <param name="input">Text to proccess</param>
         /// <returns>Final result</returns>
         public static double FromString(string input)
         {
-            // TODO
             return 0.0;
         }
 
