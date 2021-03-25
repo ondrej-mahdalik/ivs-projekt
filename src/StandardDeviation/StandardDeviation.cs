@@ -20,9 +20,8 @@ namespace StandardDeviation
                     numbers[i] = Double.Parse(splitInput[i]);
                 }
             }
-            catch (Exception e) {
-                Console.WriteLine(e.Message);
-                System.Environment.Exit(1);
+            catch (FormatException) {
+                throw new FormatException();
             }
             return numbers;
         }
@@ -31,9 +30,8 @@ namespace StandardDeviation
         /// </summary>
         /// <param name="input">Data to count the standard deviation from.</param>
         /// <returns>Standard deviation.</returns>
-        public static double CountStandardDeviation(string input)
+        public static double CountStandardDeviation(double[] numbers)
         {
-            double[] numbers = GetNumbersFromString(input);
             double sum = 0;
             double poweredSum = 0;
             for (int i = 0; i < numbers.Length; i++) {
@@ -49,7 +47,8 @@ namespace StandardDeviation
         {
             string input;
             input = Console.ReadLine();
-            Console.WriteLine(CountStandardDeviation(input));
+            double[] numbers = GetNumbersFromString(input);
+            Console.WriteLine(CountStandardDeviation(numbers));
         }
     }
 }
