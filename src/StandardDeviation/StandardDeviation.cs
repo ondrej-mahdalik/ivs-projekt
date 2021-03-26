@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Math;
 
 namespace StandardDeviation
@@ -16,18 +16,17 @@ namespace StandardDeviation
             double[] numbers = new double[splitInput.Length];
 
             //Checking whether the correct input is given
-            try
+            try 
             {
                 for (int i = 0; i < splitInput.Length; i++)
                     numbers[i] = Double.Parse(splitInput[i]);
             }
-            catch (FormatException)
-            {
+            catch (FormatException) {
                 throw new FormatException();
             }
             return numbers;
         }
-      
+
         /// <summary>
         /// Counts the standard deviation.
         /// </summary>
@@ -40,7 +39,7 @@ namespace StandardDeviation
             if (numbers.Length == 1)
                 throw new DivideByZeroException();
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < numbers.Length; i++) 
             {
                 sum += numbers[i];
                 poweredSum += MathClass.Power(numbers[i], 2);
