@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Math;
 
 namespace StandardDeviation
@@ -15,17 +16,9 @@ namespace StandardDeviation
             string[] splitInput = input.Split(' ', '\n', '\t');
             double[] numbers = new double[splitInput.Length];
 
-            //Checking whether the correct input is given
-            try 
-            {
-                for (int i = 0; i < splitInput.Length; i++)
-                    numbers[i] = Double.Parse(splitInput[i]);
-            }
+            for (int i = 0; i < splitInput.Length; i++)
+                numbers[i] = Double.Parse(splitInput[i], NumberStyles.Number, CultureInfo.InvariantCulture);
 
-            catch (FormatException)
-            {
-                throw new FormatException();
-            }
             return numbers;
         }
       
