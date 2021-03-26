@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using Math;
+
 namespace StandardDeviation
 {
     public class StandardDeviationClass
@@ -11,34 +12,34 @@ namespace StandardDeviation
         /// <returns>Array of doubles.</returns>
         public static double[] GetNumbersFromString(string input)
         {
-            string[] splitInput = input.Split(' ', '\n');
+            string[] splitInput = input.Split(' ', '\n', '\t');
             double[] numbers = new double[splitInput.Length];
 
             //Checking whether the correct input is given
             try
             {
                 for (int i = 0; i < splitInput.Length; i++)
-                {
                     numbers[i] = Double.Parse(splitInput[i]);
-                }
             }
-            catch (Exception e)
+            catch (FormatException)
             {
-                Console.WriteLine(e.Message);
-                System.Environment.Exit(1);
+                throw new FormatException();
             }
             return numbers;
         }
+      
         /// <summary>
         /// Counts the standard deviation.
         /// </summary>
         /// <param name="input">Data to count the standard deviation from.</param>
         /// <returns>Standard deviation.</returns>
-        public static double CountStandardDeviation(string input)
+        public static double CountStandardDeviation(double[] numbers)
         {
-            double[] numbers = GetNumbersFromString(input);
             double sum = 0;
             double poweredSum = 0;
+            if (numbers.Length == 1)
+                throw new DivideByZeroException();
+
             for (int i = 0; i < numbers.Length; i++)
             {
                 sum += numbers[i];
@@ -53,7 +54,8 @@ namespace StandardDeviation
         {
             string input;
             input = Console.ReadLine();
-            Console.WriteLine(CountStandardDeviation(input));
+            double[] numbers = GetNumbersFromString(input);
+            Console.WriteLine(CountStandardDeviation(numbers));
         }
     }
 }
