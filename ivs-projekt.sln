@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathTests", "src\MathTests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardDeviation", "src\StandardDeviation\StandardDeviation.csproj", "{C40C4954-6252-48E0-A9E6-250DAA8DEDC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardDeviationTests", "src\StandardDeviationTest\StandardDeviationTests.csproj", "{3B9B7803-E8E4-4948-AB6A-BFD2E21DD9DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardDeviationTests", "src\StandardDeviationTests\StandardDeviationTests.csproj", "{3B9B7803-E8E4-4948-AB6A-BFD2E21DD9DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
