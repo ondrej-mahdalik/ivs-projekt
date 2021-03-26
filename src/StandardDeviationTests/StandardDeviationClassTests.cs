@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StandardDeviation;
-using Math;
 using System;
+
 namespace StandardDeviationTests
 {
     [TestClass()]
