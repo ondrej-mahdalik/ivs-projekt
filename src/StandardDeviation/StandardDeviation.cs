@@ -11,7 +11,7 @@ namespace StandardDeviation
         /// <returns>Array of doubles.</returns>
         public static double[] GetNumbersFromString(string input)
         {
-            string[] splitInput = input.Split(' ', '\n');
+            string[] splitInput = input.Split(' ', '\n', '\t');
             double[] numbers = new double[splitInput.Length];
 
             //Checking whether the correct input is given
@@ -34,6 +34,9 @@ namespace StandardDeviation
         {
             double sum = 0;
             double poweredSum = 0;
+            if (numbers.Length == 1) {
+                throw new DivideByZeroException();
+            }
             for (int i = 0; i < numbers.Length; i++) {
                 sum += numbers[i];
                 poweredSum += MathClass.Power(numbers[i], 2);
