@@ -118,7 +118,11 @@ namespace Math
             if(index == 0 || (index % 2 == 0 &&  radicant < 0)) {
                 throw new ArithmeticException();
             }
-            return System.Math.Pow(radicant,1.0 / index);
+            double result = System.Math.Pow(System.Math.Abs(radicant), 1.0 / index);
+            if (radicant < 0) {
+                result = -result;
+            }
+            return result;
         }
 
         /// <summary>
