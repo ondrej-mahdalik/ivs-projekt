@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Math;
 
 namespace StandardDeviation
@@ -19,9 +20,8 @@ namespace StandardDeviation
             try 
             {
                 for (int i = 0; i < splitInput.Length; i++)
-                    numbers[i] = Double.Parse(splitInput[i]);
+                    numbers[i] = Double.Parse(splitInput[i], NumberStyles.Number, CultureInfo.InvariantCulture);
             }
-
             catch (FormatException)
             {
                 throw new FormatException();
