@@ -16,11 +16,12 @@ namespace StandardDeviation
             double[] numbers = new double[splitInput.Length];
 
             //Checking whether the correct input is given
-            try
+            try 
             {
                 for (int i = 0; i < splitInput.Length; i++)
                     numbers[i] = Double.Parse(splitInput[i]);
             }
+
             catch (FormatException)
             {
                 throw new FormatException();
