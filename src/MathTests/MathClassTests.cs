@@ -126,5 +126,24 @@ namespace Math.Tests
             }
         }
 
+        [TestMethod()]
+        public void InfixToPostfixTest()
+        {
+            string[] expressions = { "1+1", "1.2+3.4", "123*e+65", "(2-3)e*2", "12+34*56", "(1+2)*3", "123456789*2+4/2", "3*(1*2)+4-5","2+2^3" };
+            string[] results = { "1 1 +", "1.2 3.4 +", "123 e * 65 +", "2 3 - e * 2 *", "12 34 56 * +", "1 2 + 3 *", "123456789 2 * 4 2 / +", "3 1 2 * * 4 + 5 -","2 2 3 ^ +" };
+            for (int i = 0; i < expressions.Length; i++) {
+                Assert.AreEqual(results[i], MathClass.InfixToPostfix(expressions[i]));
+            }
+        }
+
+        [TestMethod()]
+        public void FromStringTest()
+        {
+            string[] expressions = { "1+1","12-4","3*2","5/2","2+3*4","3/4+2+3*4","(2+3)*4", "2π*3+4", "2+3^3" };
+            double[] results = { 2, 8, 6, 2.5, 14, 14.75, 20 , 6*System.Math.PI + 4, 29 };
+            for (int i = 0; i < expressions.Length; i++) {
+                Assert.AreEqual(results[i], MathClass.FromString(expressions[i]));
+            }
+        }
     }
 }
