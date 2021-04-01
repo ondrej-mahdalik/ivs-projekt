@@ -127,23 +127,49 @@ namespace Math.Tests
         }
 
         [TestMethod()]
+        public void AbsTest()
+        {
+            double[] numbers = { 1, -1, 200, -200, -420, -69.69 };
+            double[] results = { 1, 1, 200, 200, 420, 69.69 };
+            for (int i = 0; i < numbers.Length; i++) {
+                Assert.AreEqual(results[i], (MathClass.Abs(results[i])));
+            }
+        }
+
+        [TestMethod()]
         public void InfixToPostfixTest()
         {
-            string[] expressions = { "1+1", "1.2+3.4", "123*e+65", "(2-3)e*2", "12+34*56", "(1+2)*3", "123456789*2+4/2", "3*(1*2)+4-5","2+2^3" };
-            string[] results = { "1 1 +", "1.2 3.4 +", "123 e * 65 +", "2 3 - e * 2 *", "12 34 56 * +", "1 2 + 3 *", "123456789 2 * 4 2 / +", "3 1 2 * * 4 + 5 -","2 2 3 ^ +" };
-            for (int i = 0; i < expressions.Length; i++) {
-                Assert.AreEqual(results[i], MathClass.InfixToPostfix(expressions[i]));
+            string[] simpleExpressions = { "1+1", "1.2+3.4", "123*e+65", "(2-3)e*2", "12+34*56", "(1+2)*3", "123456789*2+4/2", "3*(1*2)+4-5","2+2^3","3+3!","4/2*3","1(2+2)" };
+            string[] simpleResults = { "1 1 +", "1.2 3.4 +", "123 e * 65 +", "2 3 - e * 2 *", "12 34 56 * +", "1 2 + 3 *", "123456789 2 * 4 2 / +", "3 1 2 * * 4 + 5 -","2 2 3 ^ +","3 3 ! +","4 2 / 3 *","1 2 2 + *"};
+            for (int i = 0; i < simpleExpressions.Length; i++) {
+                Assert.AreEqual(simpleResults[i], MathClass.InfixToPostfix(simpleExpressions[i]));
             }
+
+            string[] expressionsWithNegativeNums = { "-5","2-3+4","(2*3)-2","3*-5","4/2*-3" };
+            string[] resultsForNegatives = { "0 5 -", "2 3 4 + -", "2 3 * 2 -", "3 0 5 - *","4 2 / 0 3 - *" };
+            for (int i = 0; i < expressionsWithNegativeNums.Length; i++) {
+                Assert.AreEqual(resultsForNegatives[i], MathClass.InfixToPostfix(expressionsWithNegativeNums[i]));
+            }
+
+            string[] funcsExpressions = { "Abs(5)-3", "Abs(5-3)", "Abs(3*(2-4))", "Abs(((2+2)*(3+1))*(3-6))", "Log(20)","Root((60+4),2)" };
+            string[] funcsResults = { "5 A 3 -", "5 3 - A", "3 2 4 - * A", "2 2 + 3 1 + * 3 6 - * A", "20 L", "60 4 + 2 R" };
+            for (int i = 0; i < funcsExpressions.Length; i++) {
+                Assert.AreEqual(funcsResults[i], MathClass.InfixToPostfix(funcsExpressions[i]));
+            } 
         }
 
         [TestMethod()]
         public void FromStringTest()
         {
-            string[] expressions = { "1+1","12-4","3*2","5/2","2+3*4","3/4+2+3*4","(2+3)*4", "2π*3+4", "2+3^3" };
-            double[] results = { 2, 8, 6, 2.5, 14, 14.75, 20 , 6*System.Math.PI + 4, 29 };
+            string[] expressions = { "1+1","12-4","3*2","5/2","2+3*4","3/4+2+3*4","(2+3)*4", "2π*3+4", "2+3^3","3*3!","1-4*2","3*-5","-4+2*3",
+                                     "-20*4+80/2", "4/2*-3","3*4/3","3(1+1)","2(4*2)+6","Abs(-10)","Abs(10-3(2*3))","Log(100*100)","Root(64,2)", "Root(25*5,1+2)","3Log(10)" };
+            double[] results = { 2, 8, 6, 2.5, 14, 14.75, 20 , 6*System.Math.PI + 4, 29, 18,-7,-15, 2,-40,-6,4,6,22,10,8,4,8,5,3 };
             for (int i = 0; i < expressions.Length; i++) {
                 Assert.AreEqual(results[i], MathClass.FromString(expressions[i]));
             }
+            Assert.ThrowsException<FormatException>(() => MathClass.FromString("2(3*2"));
+            Assert.ThrowsException<FormatException>(() => MathClass.FromString("1*/3"));
+            Assert.ThrowsException<FormatException>(() => MathClass.FromString("AHOJ"));
         }
     }
 }
