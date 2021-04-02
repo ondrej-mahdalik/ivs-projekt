@@ -17,7 +17,7 @@ namespace StandardDeviation
             double[] numbers = new double[splitInput.Length];
 
             for (int i = 0; i < splitInput.Length; i++)
-                numbers[i] = Double.Parse(splitInput[i], NumberStyles.Number, CultureInfo.InvariantCulture);
+                numbers[i] = double.Parse(splitInput[i], NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite, CultureInfo.InvariantCulture);
 
             return numbers;
         }
