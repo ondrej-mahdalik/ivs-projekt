@@ -40,7 +40,7 @@ namespace Math
             System.Collections.Generic.IList<char> operators = new System.Collections.Generic.List<char> { '-', '+', '*', '/', '^' }; //List of supported operators
 
             if (input.Split('(').Length != input.Split(')').Length) {
-                throw new FormatException(); // Not all brackets were closed or opened
+                throw new FormatException("Not all brackets were closed or opened");
             }
 
             input = input.Replace("Abs", "A"); //Replace names of function with short versions (makes conversion easier)
@@ -99,7 +99,7 @@ namespace Math
                             stack.Push('[');
                         }
                         else {
-                            throw new FormatException(); // Unsupported character
+                            throw new FormatException("Unsupported character: " + c);
                         }
                     }
                     else {
@@ -126,7 +126,7 @@ namespace Math
                 }
                 else if (c == ')') {
                     if (i != input.Length - 1 && !operators.Contains(input[i + 1]) &&  input[i+1] != 'e' && input[i+1] != 'E' && input[i+1] != 'π' && input[i+1] != ')' && input[i+1] != ',') {
-                        throw new FormatException(); // Syntax error : a number directly following a closing bracket
+                        throw new FormatException("Syntax error: A number directly following a closing bracket.");
                     }
                     if (openedBracketsCnt == 0) { //Currently in a function
                         while(stack.Peek() != '[') {
@@ -155,7 +155,7 @@ namespace Math
                 }
                 else if(c == ',') { // Separator of values inside Root
                     if(currentFunc != 2) { // comma is only allowed inside of Root
-                        throw new FormatException();
+                        throw new FormatException("Comma is only allowed inside of Root");
                     }
                     while (stack.Peek() != '[') {
                         if (operators.Contains(stack.Peek())) { //Next char is operator -> put a space infront of it
@@ -167,7 +167,7 @@ namespace Math
                 }
                 else { //Character should be an OPERATOR
                     if (!operators.Contains(c)) { // Char is not one of the supported operators -> throws exception 
-                        throw new FormatException();
+                        throw new FormatException("Char is not one of the supported operators");
                     }
                     if (i != 0 && c != '-' && operators.Contains(input[i - 1])) throw new FormatException(); // Syntax error : Two operators next to each other
                     if (stack.Count == 0 || Prec(c) > Prec(stack.Peek()) || stack.Contains('(')) {
