@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+
 namespace Math
 {
    
@@ -228,7 +230,7 @@ namespace Math
                 }
                 else { // c is an operator or a whitespace
                     if (readingNumber) { // Was previously reading a number
-                        stack.Push( Double.Parse(numBuff)); //Push the number to the stack
+                        stack.Push(double.Parse(numBuff, NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite, CultureInfo.InvariantCulture)); //Push the number to the stack
                         numBuff = "";
                         readingNumber = false;
                     }
