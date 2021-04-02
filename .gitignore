@@ -341,3 +341,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Doxygen
+[Dd]oxyfile
+*.pdf
