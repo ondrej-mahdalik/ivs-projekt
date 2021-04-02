@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<doc>
+	<assembly>
+		<name>Math</name>
+	</assembly>
+	<members>
+		<member name="M:Math.MathClass.Prec(System.Char)">
+			<summary>
+				Utility function that returns the precedence of given operator.
+				Higher value means higher precedence (is evaluated sooner)
+			</summary>
+			<param name="ch">Operator</param>
+			<returns>Precendence</returns>
+		</member>
+		<member name="M:Math.MathClass.InfixToPostfix(System.String)">
+			<summary>
+				Converts expression in infix format to expression in postfix format
+				Supported operators and functions: + - * / ^ Abs(num) Log(num) Root(num,index)
+				Supported constants : e π
+			</summary>
+			<param name="input">Infix expression</param>
+			<returns>Postfix expression</returns>
+		</member>
+		<member name="M:Math.MathClass.FromString(System.String)">
+			<summary>
+				Processes string input, performs all operations in correct order and returns result.
+				Supported operators and functions: + - * / ^ Abs(num) Log(num) Root(num,index)
+				Supported constants : e π
+				Uses dot as decimal separator
+			</summary>
+			<param name="input">Expression to proccess</param>
+			<returns>Final result</returns>
+		</member>
+		<member name="M:Math.MathClass.Add(System.Double,System.Double)">
+			<summary>
+				Adds one number to another.
+			</summary>
+			<param name="inputA">Number to proccess</param>
+			<param name="inputB">Number to proccess</param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Subtract(System.Double,System.Double)">
+			<summary>
+				Substracts one number from another.
+			</summary>
+			<param name="inputA">Number to subtract from</param>
+			<param name="inputB">Number to </param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Divide(System.Double,System.Double)">
+			<summary>
+				Divides one number by another.
+			</summary>
+			<param name="inputA"></param>
+			<param name="inputB"></param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Multiply(System.Double,System.Double)">
+			<summary>
+				Multiplies one number by another.
+			</summary>
+			<param name="inputA"></param>
+			<param name="inputB"></param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Abs(System.Double)">
+			<summary>
+				Returns the absolute value of the input number.
+			</summary>
+			<param name="input"></param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Factorial(System.Double)">
+			<summary>
+				Returns a factorial of the input number. Only supports whole numbers.
+			</summary>
+			<param name="input"></param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Power(System.Double,System.Double)">
+			<summary>
+				Returns input^exponent.
+			</summary>
+			<param name="input"></param>
+			<param name="exponent"></param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Root(System.Double,System.Double)">
+			<summary>
+				Returns index-th root of a radicant.
+			</summary>
+			<param name="radicant"></param>
+			<param name="index"></param>
+			<returns>Result</returns>
+		</member>
+		<member name="M:Math.MathClass.Logarithm(System.Double)">
+			<summary>
+				Returns the decadic logarithm of input.
+			</summary>
+			<param name="input"></param>
+			<returns>Result</returns>
+		</member>
+	</members>
+</doc>

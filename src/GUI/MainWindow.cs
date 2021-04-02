@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 using Math;
 
@@ -21,7 +15,7 @@ namespace GUI
         private void BtnClick(object sender, EventArgs e)
         {
             var button = sender as Button;
-            
+
             switch (button.Tag) {
                 case "num":
                     txtResult.Text += button.Text;
@@ -64,7 +58,7 @@ namespace GUI
         {
             string result = "";
             try {
-                result = MathClass.FromString(txtResult.Text).ToString();
+                result = MathClass.FromString(txtResult.Text).ToString(CultureInfo.InvariantCulture);
             }
             catch (Exception ex) {
                 result = ex.Message;
@@ -82,8 +76,7 @@ namespace GUI
                 return;
             }
 
-            switch(e.KeyCode) {
-                
+            switch (e.KeyCode) {
                 // Enter Button
                 case Keys.Enter:
                     btnEnter.PerformClick();

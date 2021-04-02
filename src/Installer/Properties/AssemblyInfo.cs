@@ -31,11 +31,11 @@ using System.Windows;
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //kde se nacházejí zdrojové slovníky pro konkrétní motiv
-                                     //(používá se, pokud se prostředek nenajde na stránce
-                                     // nebo ve zdrojových slovnících aplikace)
+    //(používá se, pokud se prostředek nenajde na stránce
+    // nebo ve zdrojových slovnících aplikace)
     ResourceDictionaryLocation.SourceAssembly //kde se nachází obecný zdrojový slovník
-                                              //(používá se, pokud se prostředek nenajde na stránce
-                                              // v aplikaci nebo libovolných zdrojových slovnících pro konkrétní motiv)
+    //(používá se, pokud se prostředek nenajde na stránce
+    // v aplikaci nebo libovolných zdrojových slovnících pro konkrétní motiv)
 )]
 
 

@@ -7,7 +7,7 @@ namespace StandardDeviation
     public class StandardDeviationClass
     {
         /// <summary>
-        /// Converts the string of numbers to an array of numbers.
+        ///     Converts the string of numbers to an array of numbers.
         /// </summary>
         /// <param name="input">Input to parse.</param>
         /// <returns>Array of doubles.</returns>
@@ -17,15 +17,17 @@ namespace StandardDeviation
             double[] numbers = new double[splitInput.Length];
 
             for (int i = 0; i < splitInput.Length; i++)
-                numbers[i] = double.Parse(splitInput[i], NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite, CultureInfo.InvariantCulture);
+                numbers[i] = double.Parse(splitInput[i],
+                    NumberStyles.AllowHexSpecifier | NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign |
+                    NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite, CultureInfo.InvariantCulture);
 
             return numbers;
         }
-      
+
         /// <summary>
-        /// Counts the standard deviation.
+        ///     Counts the standard deviation.
         /// </summary>
-        /// <param name="input">Data to count the standard deviation from.</param>
+        /// <param name="numbers">Data to count the standard deviation from.</param>
         /// <returns>Standard deviation.</returns>
         public static double CountStandardDeviation(double[] numbers)
         {
@@ -34,16 +36,17 @@ namespace StandardDeviation
             if (numbers.Length == 1)
                 throw new DivideByZeroException();
 
-            for (int i = 0; i < numbers.Length; i++)
-            {
+            for (int i = 0; i < numbers.Length; i++) {
                 sum += numbers[i];
                 poweredSum += MathClass.Power(numbers[i], 2);
             }
+
             double average = sum / numbers.Length;
             double sumOfDeviations = poweredSum - numbers.Length * MathClass.Power(average, 2);
             double result = MathClass.Root(sumOfDeviations / (numbers.Length - 1), 2);
             return result;
         }
+
         public static void Main(string[] args)
         {
             string input;
