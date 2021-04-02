@@ -14,9 +14,9 @@ namespace StandardDeviation
         public static double[] GetNumbersFromString(string input)
         {
             string[] splitInput = input.Split(' ', '\n', '\t');
-            double[] numbers = new double[splitInput.Length];
+            double[] numbers = new double[splitInput.Length - 1]; //Last element in splitInput is ' '
 
-            for (int i = 0; i < splitInput.Length; i++)
+            for (int i = 0; i < splitInput.Length - 1; i++)
                 numbers[i] = double.Parse(splitInput[i], NumberStyles.AllowDecimalPoint |
                     NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite,
                     CultureInfo.InvariantCulture);
@@ -50,8 +50,20 @@ namespace StandardDeviation
 
         public static void Main(string[] args)
         {
-            var input = Console.ReadLine();
-            double[] numbers = GetNumbersFromString(input);
+            string input;
+            string parsedInput = "\0";
+            while ((input = Console.ReadLine()) != null) {
+                parsedInput += input;
+                parsedInput += ' '; //Number at the end of the line and number at the beginning of a new line need to be split
+
+                //Reaching an empty line
+                if (string.IsNullOrEmpty(input)) {
+                    parsedInput = parsedInput.Remove(parsedInput.Length - 1);
+                    break;
+                }
+            }
+            parsedInput = parsedInput.Substring(1); //First element is space so it needs to be removed
+            double[] numbers = GetNumbersFromString(parsedInput);
             Console.WriteLine(CountStandardDeviation(numbers));
         }
     }
