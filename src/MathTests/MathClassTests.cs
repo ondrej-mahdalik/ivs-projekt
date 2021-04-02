@@ -107,6 +107,9 @@ namespace Math.Tests
             double[] results =
                 {0, 1, 2, 3, 1.6989700043360187, 2.4771212547196626, 2.816241299991783, 3.3010299956639813};
             for (int i = 0; i < firstNums.Length; i++) Assert.AreEqual(results[i], MathClass.Logarithm(firstNums[i]));
+            Assert.ThrowsException<NotFiniteNumberException>(() => MathClass.Logarithm(double.PositiveInfinity));
+            Assert.ThrowsException<NotFiniteNumberException>(() => MathClass.Logarithm(double.NegativeInfinity));
+            Assert.ThrowsException<NotFiniteNumberException>(() => MathClass.Logarithm(-4));
         }
 
         [TestMethod]
