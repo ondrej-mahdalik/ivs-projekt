@@ -17,9 +17,9 @@ namespace StandardDeviation
             double[] numbers = new double[splitInput.Length];
 
             for (int i = 0; i < splitInput.Length; i++)
-                numbers[i] = double.Parse(splitInput[i],
-                    NumberStyles.AllowHexSpecifier | NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign |
-                    NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite, CultureInfo.InvariantCulture);
+                numbers[i] = double.Parse(splitInput[i], NumberStyles.AllowDecimalPoint |
+                    NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite,
+                    CultureInfo.InvariantCulture);
 
             return numbers;
         }
@@ -36,9 +36,10 @@ namespace StandardDeviation
             if (numbers.Length == 1)
                 throw new DivideByZeroException();
 
-            for (int i = 0; i < numbers.Length; i++) {
-                sum += numbers[i];
-                poweredSum += MathClass.Power(numbers[i], 2);
+            foreach (var t in numbers)
+            {
+                sum += t;
+                poweredSum += MathClass.Power(t, 2);
             }
 
             double average = sum / numbers.Length;
@@ -49,8 +50,7 @@ namespace StandardDeviation
 
         public static void Main(string[] args)
         {
-            string input;
-            input = Console.ReadLine();
+            var input = Console.ReadLine();
             double[] numbers = GetNumbersFromString(input);
             Console.WriteLine(CountStandardDeviation(numbers));
         }
