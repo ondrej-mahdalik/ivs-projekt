@@ -11,27 +11,27 @@ namespace StandardDeviationTests
         public void ParseInputTest()
         {
             //Testing basic parsing
-            string input = "1 2 3 4 5 6 7 8 9 10";
+            string input = "1 2 3 4 5 6 7 8 9 10 ";
             double[] expected = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
             CollectionAssert.AreEqual(expected, StandardDeviationClass.GetNumbersFromString(input));
-            input = "455.564 -26.4871345 -0.974 410001.05 -248764.145";
+            input = "455.564 -26.4871345 -0.974 410001.05 -248764.145 ";
             double[] expected2 = {455.564, -26.4871345, -0.974, 410001.05, -248764.145};
             CollectionAssert.AreEqual(expected2, StandardDeviationClass.GetNumbersFromString(input));
 
             //Testing field separators
-            input = "1\t2\t3\t4\t5\t6\t7\t8\t9\t10";
+            input = "1\t2\t3\t4\t5\t6\t7\t8\t9\t10 ";
             CollectionAssert.AreEqual(expected, StandardDeviationClass.GetNumbersFromString(input));
-            input = "1\n2\n3\n4\n5\n6\n7\n8\n9\n10";
+            input = "1\n2\n3\n4\n5\n6\n7\n8\n9\n10 ";
             CollectionAssert.AreEqual(expected, StandardDeviationClass.GetNumbersFromString(input));
-            input = "1\t2\n3 4\n5\t6 7 8\n9\t10";
+            input = "1\t2\n3 4\n5\t6 7 8\n9\t10 ";
             CollectionAssert.AreEqual(expected, StandardDeviationClass.GetNumbersFromString(input));
 
             //Testing exceptions
-            input = "asd asd";
+            input = "asd asd ";
             Assert.ThrowsException<FormatException>(() => StandardDeviationClass.GetNumbersFromString(input));
-            input = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10";
+            input = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ";
             Assert.ThrowsException<FormatException>(() => StandardDeviationClass.GetNumbersFromString(input));
-            input = "";
+            input = " ";
             Assert.ThrowsException<FormatException>(() => StandardDeviationClass.GetNumbersFromString(input));
         }
 
