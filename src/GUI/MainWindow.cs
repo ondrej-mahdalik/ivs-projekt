@@ -7,6 +7,8 @@ namespace GUI
 {
     public partial class MainWindow : Form
     {
+        bool writeEnabled = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -14,44 +16,20 @@ namespace GUI
 
         private void BtnClick(object sender, EventArgs e)
         {
-            var button = sender as Button;
+            if (writeEnabled)
+                txtResult.Text += (sender as Button)?.Tag;
 
-            switch (button.Tag) {
-                case "num":
-                    txtResult.Text += button.Text;
-                    break;
-
-                case "decimal":
-                    txtResult.Text += ".";
-                    break;
-
-                case "fncMultiply":
-                    txtResult.Text += "*";
-                    break;
-
-                case "fncDivide":
-                    txtResult.Text += "/";
-                    break;
-
-                case "fncAdd":
-                    txtResult.Text += "+";
-                    break;
-
-                case "fncSub":
-                    txtResult.Text += "-";
-                    break;
-            }
-        }
-
-        private void Backspace()
-        {
-            if (txtResult.Text.Length > 0)
-                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
         }
 
         private void BtnClear(object sender, EventArgs e)
         {
             txtResult.Text = "";
+            writeEnabled = true;
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
         }
 
         private void BtnEnter(object sender, EventArgs e)
@@ -62,10 +40,14 @@ namespace GUI
             }
             catch (Exception ex) {
                 result = ex.Message;
+                writeEnabled = false;
             }
             finally {
                 txtResult.Text = result;
             }
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
         }
 
         private void HandleKeyPress(object sender, KeyEventArgs e)
@@ -77,6 +59,25 @@ namespace GUI
             }
 
             switch (e.KeyCode) {
+                // Brackets
+                case Keys.OemOpenBrackets:
+                    btnOpening.PerformClick();
+                    break;
+
+                case Keys.OemCloseBrackets:
+                    btnClosing.PerformClick();
+                    break;
+
+                // Dash and dot
+                case Keys.Decimal:
+                case Keys.OemPeriod:
+                    btnDecimal.PerformClick();
+                    break;
+                    
+                case Keys.Oemcomma:
+                    btnComma.PerformClick();
+                    break;
+
                 // Enter Button
                 case Keys.Enter:
                     btnEnter.PerformClick();
@@ -90,7 +91,7 @@ namespace GUI
 
                 // Backspace Button
                 case Keys.Back:
-                    Backspace();
+                    btnBackspace.PerformClick();
                     break;
 
                 // Numbers
@@ -161,6 +162,22 @@ namespace GUI
                     btnDivide.PerformClick();
                     break;
             }
+        }
+
+        private void BtnBackspaceClick(object sender, EventArgs e)
+        {
+            if (txtResult.Text.Length > 0)
+                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new HelpWindow().Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new AboutWindow().Show();
         }
     }
 }
