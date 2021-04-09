@@ -29,6 +29,7 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.txtResult = new System.Windows.Forms.TextBox();
             this.btnNum1 = new System.Windows.Forms.Button();
             this.btnNum3 = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@ namespace GUI
             this.btnNum9 = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
-            this.btnDash = new System.Windows.Forms.Button();
+            this.btnComma = new System.Windows.Forms.Button();
             this.btnRoot = new System.Windows.Forms.Button();
             this.btnOpening = new System.Windows.Forms.Button();
             this.btnLog = new System.Windows.Forms.Button();
@@ -157,7 +158,7 @@ namespace GUI
             this.tableLayoutPanel1.Controls.Add(this.btnNum9, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnMultiply, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnDivide, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnDash, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnComma, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnRoot, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnOpening, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLog, 1, 1);
@@ -444,23 +445,23 @@ namespace GUI
             this.btnDivide.UseVisualStyleBackColor = false;
             this.btnDivide.Click += new System.EventHandler(this.BtnClick);
             // 
-            // btnDash
+            // btnComma
             // 
-            this.btnDash.BackColor = System.Drawing.Color.LightGray;
-            this.btnDash.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDash.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.btnDash.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDash.Location = new System.Drawing.Point(3, 278);
-            this.btnDash.MinimumSize = new System.Drawing.Size(30, 30);
-            this.btnDash.Name = "btnDash";
-            this.btnDash.Size = new System.Drawing.Size(59, 52);
-            this.btnDash.TabIndex = 6;
-            this.btnDash.TabStop = false;
-            this.btnDash.Tag = ",";
-            this.btnDash.Text = ",";
-            this.btnDash.UseVisualStyleBackColor = false;
-            this.btnDash.Click += new System.EventHandler(this.BtnClick);
+            this.btnComma.BackColor = System.Drawing.Color.LightGray;
+            this.btnComma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnComma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComma.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnComma.ForeColor = System.Drawing.Color.DimGray;
+            this.btnComma.Location = new System.Drawing.Point(3, 278);
+            this.btnComma.MinimumSize = new System.Drawing.Size(30, 30);
+            this.btnComma.Name = "btnComma";
+            this.btnComma.Size = new System.Drawing.Size(59, 52);
+            this.btnComma.TabIndex = 6;
+            this.btnComma.TabStop = false;
+            this.btnComma.Tag = ",";
+            this.btnComma.Text = ",";
+            this.btnComma.UseVisualStyleBackColor = false;
+            this.btnComma.Click += new System.EventHandler(this.BtnClick);
             // 
             // btnRoot
             // 
@@ -560,10 +561,10 @@ namespace GUI
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
-            this.menuStrip1.Location = new System.Drawing.Point(120, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(48, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(152, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(224, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -571,14 +572,16 @@ namespace GUI
             // 
             this.toolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
-            this.toolStripMenuItem1.Text = "O aplikaci";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(52, 20);
+            this.toolStripMenuItem1.Text = "About";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(73, 20);
-            this.toolStripMenuItem2.Text = "Nápověda";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 20);
+            this.toolStripMenuItem2.Text = "Help";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // MainWindow
             // 
@@ -588,12 +591,13 @@ namespace GUI
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 430);
             this.Name = "MainWindow";
-            this.Text = "Kalkulačka";
+            this.Text = "Calculator";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HandleKeyPress);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -626,7 +630,7 @@ namespace GUI
         private System.Windows.Forms.Button btnDecimal;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Button btnOpening;
-        private System.Windows.Forms.Button btnDash;
+        private System.Windows.Forms.Button btnComma;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAbs;
         private System.Windows.Forms.Button btnBackspace;

@@ -18,12 +18,18 @@ namespace GUI
         {
             if (writeEnabled)
                 txtResult.Text += (sender as Button)?.Tag;
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
         }
 
         private void BtnClear(object sender, EventArgs e)
         {
             txtResult.Text = "";
             writeEnabled = true;
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
         }
 
         private void BtnEnter(object sender, EventArgs e)
@@ -39,6 +45,9 @@ namespace GUI
             finally {
                 txtResult.Text = result;
             }
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
         }
 
         private void HandleKeyPress(object sender, KeyEventArgs e)
@@ -50,6 +59,25 @@ namespace GUI
             }
 
             switch (e.KeyCode) {
+                // Brackets
+                case Keys.OemOpenBrackets:
+                    btnOpening.PerformClick();
+                    break;
+
+                case Keys.OemCloseBrackets:
+                    btnClosing.PerformClick();
+                    break;
+
+                // Dash and dot
+                case Keys.Decimal:
+                case Keys.OemPeriod:
+                    btnDecimal.PerformClick();
+                    break;
+                    
+                case Keys.Oemcomma:
+                    btnComma.PerformClick();
+                    break;
+
                 // Enter Button
                 case Keys.Enter:
                     btnEnter.PerformClick();
@@ -140,6 +168,16 @@ namespace GUI
         {
             if (txtResult.Text.Length > 0)
                 txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new HelpWindow().Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new AboutWindow().Show();
         }
     }
 }
