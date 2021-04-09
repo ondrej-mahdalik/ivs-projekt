@@ -345,6 +345,3 @@ healthchecksdb
 # Doxygen
 [Dd]oxyfile
 *.pdf
-
-# Inno Setup
-**/Installer/Output/
