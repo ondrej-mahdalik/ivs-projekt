@@ -68,11 +68,11 @@ namespace GUI
             this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResult.Enabled = false;
-            this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtResult.Location = new System.Drawing.Point(12, 37);
+            this.txtResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtResult.Location = new System.Drawing.Point(12, 27);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(260, 56);
+            this.txtResult.Size = new System.Drawing.Size(260, 44);
             this.txtResult.TabIndex = 0;
             this.txtResult.WordWrap = false;
             // 
@@ -83,10 +83,10 @@ namespace GUI
             this.btnNum1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum1.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum1.Location = new System.Drawing.Point(3, 223);
+            this.btnNum1.Location = new System.Drawing.Point(3, 215);
             this.btnNum1.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum1.Name = "btnNum1";
-            this.btnNum1.Size = new System.Drawing.Size(59, 49);
+            this.btnNum1.Size = new System.Drawing.Size(59, 47);
             this.btnNum1.TabIndex = 11;
             this.btnNum1.TabStop = false;
             this.btnNum1.Tag = "1";
@@ -101,10 +101,10 @@ namespace GUI
             this.btnNum3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum3.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum3.Location = new System.Drawing.Point(133, 223);
+            this.btnNum3.Location = new System.Drawing.Point(133, 215);
             this.btnNum3.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum3.Name = "btnNum3";
-            this.btnNum3.Size = new System.Drawing.Size(59, 49);
+            this.btnNum3.Size = new System.Drawing.Size(59, 47);
             this.btnNum3.TabIndex = 13;
             this.btnNum3.TabStop = false;
             this.btnNum3.Tag = "3";
@@ -119,10 +119,10 @@ namespace GUI
             this.btnNum2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum2.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum2.Location = new System.Drawing.Point(68, 223);
+            this.btnNum2.Location = new System.Drawing.Point(68, 215);
             this.btnNum2.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum2.Name = "btnNum2";
-            this.btnNum2.Size = new System.Drawing.Size(59, 49);
+            this.btnNum2.Size = new System.Drawing.Size(59, 47);
             this.btnNum2.TabIndex = 12;
             this.btnNum2.TabStop = false;
             this.btnNum2.Tag = "2";
@@ -164,7 +164,7 @@ namespace GUI
             this.tableLayoutPanel1.Controls.Add(this.btnLog, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnClosing, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAbs, 2, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 99);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 77);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -174,7 +174,7 @@ namespace GUI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 333);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 320);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // btnBackspace
@@ -187,7 +187,7 @@ namespace GUI
             this.btnBackspace.Location = new System.Drawing.Point(133, 3);
             this.btnBackspace.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnBackspace.Name = "btnBackspace";
-            this.btnBackspace.Size = new System.Drawing.Size(59, 49);
+            this.btnBackspace.Size = new System.Drawing.Size(59, 47);
             this.btnBackspace.TabIndex = 6;
             this.btnBackspace.TabStop = false;
             this.btnBackspace.Text = "BS";
@@ -204,7 +204,7 @@ namespace GUI
             this.btnClear.Location = new System.Drawing.Point(198, 3);
             this.btnClear.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(59, 49);
+            this.btnClear.Size = new System.Drawing.Size(59, 47);
             this.btnClear.TabIndex = 6;
             this.btnClear.TabStop = false;
             this.btnClear.Text = "C";
@@ -218,10 +218,10 @@ namespace GUI
             this.btnNum0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum0.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum0.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum0.Location = new System.Drawing.Point(68, 278);
+            this.btnNum0.Location = new System.Drawing.Point(68, 268);
             this.btnNum0.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum0.Name = "btnNum0";
-            this.btnNum0.Size = new System.Drawing.Size(59, 52);
+            this.btnNum0.Size = new System.Drawing.Size(59, 49);
             this.btnNum0.TabIndex = 10;
             this.btnNum0.TabStop = false;
             this.btnNum0.Tag = "0";
@@ -236,10 +236,10 @@ namespace GUI
             this.btnDecimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDecimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDecimal.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDecimal.Location = new System.Drawing.Point(133, 278);
+            this.btnDecimal.Location = new System.Drawing.Point(133, 268);
             this.btnDecimal.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnDecimal.Name = "btnDecimal";
-            this.btnDecimal.Size = new System.Drawing.Size(59, 52);
+            this.btnDecimal.Size = new System.Drawing.Size(59, 49);
             this.btnDecimal.TabIndex = 8;
             this.btnDecimal.TabStop = false;
             this.btnDecimal.Tag = ".";
@@ -254,10 +254,10 @@ namespace GUI
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnEnter.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnEnter.Location = new System.Drawing.Point(198, 278);
+            this.btnEnter.Location = new System.Drawing.Point(198, 268);
             this.btnEnter.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(59, 52);
+            this.btnEnter.Size = new System.Drawing.Size(59, 49);
             this.btnEnter.TabIndex = 9;
             this.btnEnter.TabStop = false;
             this.btnEnter.Tag = "";
@@ -272,10 +272,10 @@ namespace GUI
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAdd.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnAdd.Location = new System.Drawing.Point(198, 223);
+            this.btnAdd.Location = new System.Drawing.Point(198, 215);
             this.btnAdd.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(59, 49);
+            this.btnAdd.Size = new System.Drawing.Size(59, 47);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.TabStop = false;
             this.btnAdd.Tag = "+";
@@ -290,10 +290,10 @@ namespace GUI
             this.btnNum4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum4.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum4.Location = new System.Drawing.Point(3, 168);
+            this.btnNum4.Location = new System.Drawing.Point(3, 162);
             this.btnNum4.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum4.Name = "btnNum4";
-            this.btnNum4.Size = new System.Drawing.Size(59, 49);
+            this.btnNum4.Size = new System.Drawing.Size(59, 47);
             this.btnNum4.TabIndex = 14;
             this.btnNum4.TabStop = false;
             this.btnNum4.Tag = "4";
@@ -308,10 +308,10 @@ namespace GUI
             this.btnNum5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum5.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum5.Location = new System.Drawing.Point(68, 168);
+            this.btnNum5.Location = new System.Drawing.Point(68, 162);
             this.btnNum5.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum5.Name = "btnNum5";
-            this.btnNum5.Size = new System.Drawing.Size(59, 49);
+            this.btnNum5.Size = new System.Drawing.Size(59, 47);
             this.btnNum5.TabIndex = 15;
             this.btnNum5.TabStop = false;
             this.btnNum5.Tag = "5";
@@ -326,10 +326,10 @@ namespace GUI
             this.btnNum6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum6.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum6.Location = new System.Drawing.Point(133, 168);
+            this.btnNum6.Location = new System.Drawing.Point(133, 162);
             this.btnNum6.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum6.Name = "btnNum6";
-            this.btnNum6.Size = new System.Drawing.Size(59, 49);
+            this.btnNum6.Size = new System.Drawing.Size(59, 47);
             this.btnNum6.TabIndex = 16;
             this.btnNum6.TabStop = false;
             this.btnNum6.Tag = "6";
@@ -344,10 +344,10 @@ namespace GUI
             this.btnSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSub.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSub.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnSub.Location = new System.Drawing.Point(198, 168);
+            this.btnSub.Location = new System.Drawing.Point(198, 162);
             this.btnSub.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnSub.Name = "btnSub";
-            this.btnSub.Size = new System.Drawing.Size(59, 49);
+            this.btnSub.Size = new System.Drawing.Size(59, 47);
             this.btnSub.TabIndex = 6;
             this.btnSub.TabStop = false;
             this.btnSub.Tag = "-";
@@ -362,10 +362,10 @@ namespace GUI
             this.btnNum7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum7.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum7.Location = new System.Drawing.Point(3, 113);
+            this.btnNum7.Location = new System.Drawing.Point(3, 109);
             this.btnNum7.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum7.Name = "btnNum7";
-            this.btnNum7.Size = new System.Drawing.Size(59, 49);
+            this.btnNum7.Size = new System.Drawing.Size(59, 47);
             this.btnNum7.TabIndex = 17;
             this.btnNum7.TabStop = false;
             this.btnNum7.Tag = "7";
@@ -380,10 +380,10 @@ namespace GUI
             this.btnNum8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum8.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum8.Location = new System.Drawing.Point(68, 113);
+            this.btnNum8.Location = new System.Drawing.Point(68, 109);
             this.btnNum8.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum8.Name = "btnNum8";
-            this.btnNum8.Size = new System.Drawing.Size(59, 49);
+            this.btnNum8.Size = new System.Drawing.Size(59, 47);
             this.btnNum8.TabIndex = 18;
             this.btnNum8.TabStop = false;
             this.btnNum8.Tag = "8";
@@ -398,10 +398,10 @@ namespace GUI
             this.btnNum9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNum9.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNum9.Location = new System.Drawing.Point(133, 113);
+            this.btnNum9.Location = new System.Drawing.Point(133, 109);
             this.btnNum9.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnNum9.Name = "btnNum9";
-            this.btnNum9.Size = new System.Drawing.Size(59, 49);
+            this.btnNum9.Size = new System.Drawing.Size(59, 47);
             this.btnNum9.TabIndex = 19;
             this.btnNum9.TabStop = false;
             this.btnNum9.Tag = "9";
@@ -416,10 +416,10 @@ namespace GUI
             this.btnMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnMultiply.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnMultiply.Location = new System.Drawing.Point(198, 113);
+            this.btnMultiply.Location = new System.Drawing.Point(198, 109);
             this.btnMultiply.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnMultiply.Name = "btnMultiply";
-            this.btnMultiply.Size = new System.Drawing.Size(59, 49);
+            this.btnMultiply.Size = new System.Drawing.Size(59, 47);
             this.btnMultiply.TabIndex = 5;
             this.btnMultiply.TabStop = false;
             this.btnMultiply.Tag = "*";
@@ -434,10 +434,10 @@ namespace GUI
             this.btnDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDivide.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDivide.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnDivide.Location = new System.Drawing.Point(198, 58);
+            this.btnDivide.Location = new System.Drawing.Point(198, 56);
             this.btnDivide.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnDivide.Name = "btnDivide";
-            this.btnDivide.Size = new System.Drawing.Size(59, 49);
+            this.btnDivide.Size = new System.Drawing.Size(59, 47);
             this.btnDivide.TabIndex = 4;
             this.btnDivide.TabStop = false;
             this.btnDivide.Tag = "/";
@@ -452,10 +452,10 @@ namespace GUI
             this.btnComma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnComma.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.btnComma.ForeColor = System.Drawing.Color.DimGray;
-            this.btnComma.Location = new System.Drawing.Point(3, 278);
+            this.btnComma.Location = new System.Drawing.Point(3, 268);
             this.btnComma.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnComma.Name = "btnComma";
-            this.btnComma.Size = new System.Drawing.Size(59, 52);
+            this.btnComma.Size = new System.Drawing.Size(59, 49);
             this.btnComma.TabIndex = 6;
             this.btnComma.TabStop = false;
             this.btnComma.Tag = ",";
@@ -470,10 +470,10 @@ namespace GUI
             this.btnRoot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnRoot.ForeColor = System.Drawing.Color.Teal;
-            this.btnRoot.Location = new System.Drawing.Point(3, 58);
+            this.btnRoot.Location = new System.Drawing.Point(3, 56);
             this.btnRoot.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnRoot.Name = "btnRoot";
-            this.btnRoot.Size = new System.Drawing.Size(59, 49);
+            this.btnRoot.Size = new System.Drawing.Size(59, 47);
             this.btnRoot.TabIndex = 1;
             this.btnRoot.TabStop = false;
             this.btnRoot.Tag = "Root(";
@@ -491,7 +491,7 @@ namespace GUI
             this.btnOpening.Location = new System.Drawing.Point(3, 3);
             this.btnOpening.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnOpening.Name = "btnOpening";
-            this.btnOpening.Size = new System.Drawing.Size(59, 49);
+            this.btnOpening.Size = new System.Drawing.Size(59, 47);
             this.btnOpening.TabIndex = 6;
             this.btnOpening.TabStop = false;
             this.btnOpening.Tag = "(";
@@ -506,10 +506,10 @@ namespace GUI
             this.btnLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnLog.ForeColor = System.Drawing.Color.Teal;
-            this.btnLog.Location = new System.Drawing.Point(68, 58);
+            this.btnLog.Location = new System.Drawing.Point(68, 56);
             this.btnLog.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnLog.Name = "btnLog";
-            this.btnLog.Size = new System.Drawing.Size(59, 49);
+            this.btnLog.Size = new System.Drawing.Size(59, 47);
             this.btnLog.TabIndex = 2;
             this.btnLog.TabStop = false;
             this.btnLog.Tag = "Log(";
@@ -527,7 +527,7 @@ namespace GUI
             this.btnClosing.Location = new System.Drawing.Point(68, 3);
             this.btnClosing.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnClosing.Name = "btnClosing";
-            this.btnClosing.Size = new System.Drawing.Size(59, 49);
+            this.btnClosing.Size = new System.Drawing.Size(59, 47);
             this.btnClosing.TabIndex = 3;
             this.btnClosing.TabStop = false;
             this.btnClosing.Tag = ")";
@@ -542,10 +542,10 @@ namespace GUI
             this.btnAbs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAbs.ForeColor = System.Drawing.Color.Teal;
-            this.btnAbs.Location = new System.Drawing.Point(133, 58);
+            this.btnAbs.Location = new System.Drawing.Point(133, 56);
             this.btnAbs.MinimumSize = new System.Drawing.Size(30, 30);
             this.btnAbs.Name = "btnAbs";
-            this.btnAbs.Size = new System.Drawing.Size(59, 49);
+            this.btnAbs.Size = new System.Drawing.Size(59, 47);
             this.btnAbs.TabIndex = 6;
             this.btnAbs.TabStop = false;
             this.btnAbs.Tag = "Abs(";
@@ -561,10 +561,10 @@ namespace GUI
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
-            this.menuStrip1.Location = new System.Drawing.Point(48, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(168, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(224, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(104, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -587,7 +587,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 444);
+            this.ClientSize = new System.Drawing.Size(284, 409);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
