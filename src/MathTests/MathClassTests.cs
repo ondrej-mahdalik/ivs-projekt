@@ -140,9 +140,9 @@ namespace Math.Tests
                 Assert.AreEqual(resultsForNegatives[i], MathClass.InfixToPostfix(expressionsWithNegativeNums[i]));
 
             string[] funcsExpressions =
-                {"Abs(5)-3", "Abs(5-3)", "Abs(3*(2-4))", "Abs(((2+2)*(3+1))*(3-6))", "Log(20)", "Root((60+4),2)"};
+                {"Abs(5)-3", "Abs(5-3)", "Abs(3*(2-4))", "Abs(((2+2)*(3+1))*(3-6))", "Log(20)", "Root((60+4),2)","3*(Root(4,2))"};
             string[] funcsResults =
-                {"5 A 3 -", "5 3 - A", "3 2 4 - * A", "2 2 + 3 1 + * 3 6 - * A", "20 L", "60 4 + 2 R"};
+                {"5 A 3 -", "5 3 - A", "3 2 4 - * A", "2 2 + 3 1 + * 3 6 - * A", "20 L", "60 4 + 2 R", "3 4 2 R *"};
             for (int i = 0; i < funcsExpressions.Length; i++)
                 Assert.AreEqual(funcsResults[i], MathClass.InfixToPostfix(funcsExpressions[i]));
         }
@@ -154,11 +154,11 @@ namespace Math.Tests
                 "1+1", "12-4", "3*2", "5/2", "2+3*4", "3/4+2+3*4", "(2+3)*4", "2π*3+4", "2+3^3", "3*3!", "1-4*2",
                 "3*-5", "-4+2*3",
                 "-20*4+80/2", "4/2*-3", "3*4/3", "3(1+1)", "2(4*2)+6", "Abs(-10)", "Abs(10-3(2*3))", "Log(100*100)",
-                "Root(64,2)", "Root(25*5,1+2)", "3Log(10)"
+                "Root(64,2)", "Root(25*5,1+2)", "3Log(10)", "3*(Root(4,2))", "2*(Abs(-2)*2)", "3*(Root(4,2)*2)", "4*(Root(2(1+1),(4-3)*2))","2*(2+Root(25,2))", "Abs(((2+2)*(3+1))*(3-6))", "420"
             };
             double[] results = {
                 2, 8, 6, 2.5, 14, 14.75, 20, 6 * System.Math.PI + 4, 29, 18, -7, -15, 2, -40, -6, 4, 6, 22, 10, 8, 4, 8,
-                5, 3
+                5, 3, 6, 8, 12, 8, 14, 48, 420
             };
             for (int i = 0; i < expressions.Length; i++)
                 Assert.AreEqual(results[i], MathClass.FromString(expressions[i]));
