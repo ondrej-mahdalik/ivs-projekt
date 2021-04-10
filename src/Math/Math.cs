@@ -50,28 +50,42 @@ namespace Math
             input = input.Replace("Abs", "A"); //Replace names of function with short versions (makes conversion easier)
             input = input.Replace("Log", "L");
             input = input.Replace("Root", "R");
-            //Edits to make negative numbers work:
+            //Edits to make signed numbers work:
             input = input.Replace(" ", ""); // Delete all spaces
-            if (input[0] == '-') {
-                //Leading negative number
+            int openedBracketsCnt = 0;
+            if (input[0] == '-' || input[0] == '+') {
+                //Leading negative number (or positive number with + sign but no operand to add to)
                 int numEndIndex = 1;
                 while (numEndIndex < input.Length &&
-                       (char.IsLetterOrDigit(input[numEndIndex]) || input[numEndIndex] == '.')) numEndIndex++;
-                input = "(0" + input; //Insert opening bracket and 0 infront of the negative number
+                       (char.IsLetterOrDigit(input[numEndIndex]) || input[numEndIndex] == '.' || input[numEndIndex] == '(' || openedBracketsCnt > 0)) {
+                    if (input[numEndIndex] == '(') openedBracketsCnt++;
+                    if (input[numEndIndex] == ')') openedBracketsCnt--;
+                    numEndIndex++;
+                }
+                input = "(0" + input; //Insert opening bracket and 0 infront of the number
                 input = input.Insert(numEndIndex + 2, ")"); // Insert closing bracket at the end of the number
             }
-
-            operators.Add('('); // Add opening bracket to the list of operators ( ONLY for checking negative numbers )
+            operators.Add('('); // Add opening bracket to the list of operators ( ONLY for checking signed numbers )
             foreach (char op in operators)
-                while (input.Contains(op + "-")) {
-                    //Negative number after an operator
-                    int index = input.IndexOf(op + "-");
-                    input = input.Insert(index + 1, "(0"); //Add opening bracket and 0 infront of the minus
-                    int loopIndex = index + 4; // Index of the first digit of the negative number
+                while (input.Contains(op + "-") || input.Contains(op + "+")) {
+                    //Signed number after an operator
+                    int minusIndex = input.IndexOf(op + "-");
+                    int plusIndex = input.IndexOf(op + "+");
+                    int index = 0;
+                    if (minusIndex == -1) index = plusIndex;
+                    else if (plusIndex == -1) index = minusIndex;
+                    else index = minusIndex < plusIndex ? minusIndex : plusIndex ; 
+                    input = input.Insert(index + 1, "(0"); //Add opening bracket and 0 infront of the sign
+                    openedBracketsCnt = 0;
+                    int loopIndex = index + 4; // Index of the first digit of the signed number
                     while (loopIndex < input.Length &&
-                           (char.IsLetterOrDigit(input[loopIndex]) || input[loopIndex] == '.')
-                    ) //Gets to the end of the negative number
+                           (char.IsLetterOrDigit(input[loopIndex]) || input[loopIndex] == '.' || input[loopIndex] == '(' || openedBracketsCnt > 0)
+                    ) { //Gets to the end of the signed number
+                        if (input[loopIndex] == '(') openedBracketsCnt++;
+                        if (input[loopIndex] == ')') openedBracketsCnt--;
                         loopIndex++;
+
+                    }
                     input = input.Insert(loopIndex, ")"); // Insert the closing bracket
                 }
 
@@ -79,13 +93,17 @@ namespace Math
 
             char[] specialFuncs = {'A', 'L', 'R'};
 
-            //Represents wheter c is inside of a function(Abs,Log,Root) and which one. -1 = Not in a function, 0 = in Abs, 1 = in Log, 2 = in Root (corresponds with indexes of specialFuncs)
-            int currentFunc = -1;
+            // Topmost number of the stack currentFunc represents wheter c is inside of a function(Abs,Log,Root) and which one.
+            // -1 = Not in a function, 0 = in Abs, 1 = in Log, 2 = in Root (corresponds with indexes of specialFuncs)
+            Stack<int> currentFunc = new Stack<int>();
+            currentFunc.Push(-1); // Set the initial state to -1 = not in any function
+            
             bool ignoreOpeningBracket = false;
-            int openedBracketsCnt = 0;
+            bool commaEncountered = false; // Used to check if there are multiple commas inside of a function call
+            openedBracketsCnt = 0;
             int bracketsOpenedInsideFunc = 0;
             string postfix = "";
-            //Start of the core algorithm :
+            // Start of the core algorithm :
             for (int i = 0; i < input.Length; i++) {
                 char c = input[i];
                 if (char.IsLetterOrDigit(c) || c == '.') {
@@ -103,7 +121,7 @@ namespace Math
                             ignoreOpeningBracket = true;
                             for (int j = 0; j < specialFuncs.Length; j++)
                                 if (c == specialFuncs[j])
-                                    currentFunc = j;
+                                    currentFunc.Push(j);
                             if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(') {
                                 // Handle implicit multiplication ( 3Log(10) => 3*Log(10) )
                                 stack.Push('*');
@@ -125,7 +143,7 @@ namespace Math
                 }
                 else if (c == '(') {
                     if (!ignoreOpeningBracket) {
-                        if (currentFunc != -1) bracketsOpenedInsideFunc++;
+                        if (currentFunc.Peek() != -1) bracketsOpenedInsideFunc++;
                         //Not a bracket of a function
                         if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(' && input[i-1] != ',') {
                             // Implicit multiplication of brackets ( 3(2) => 3*(2) )
@@ -144,19 +162,20 @@ namespace Math
                         input[i + 1] != 'E' && input[i + 1] != 'π' && input[i + 1] != ')' &&
                         input[i + 1] != ',')
                         throw new FormatException("Syntax error: A number directly following a closing bracket.");
-                    if(currentFunc != -1 && bracketsOpenedInsideFunc==0) { // Closing bracket of a function inside of brackets
+                    if(currentFunc.Peek() != -1 && bracketsOpenedInsideFunc==0) { // Closing bracket of a function inside of brackets
                         while (stack.Peek() != '[') {
                             if (operators.Contains(stack.Peek())) //Next char is operator -> put a space infront of it
                                 postfix += ' ';
                             postfix += stack.Pop();
                         }
                         stack.Pop(); // Get rid of the [
-                        postfix += " " + specialFuncs[currentFunc]; // Add the special function
-                        currentFunc = -1;
+                        postfix += " " + specialFuncs[currentFunc.Peek()]; // Add the special function
+                        if (currentFunc.Peek() == 2) commaEncountered = false; // Is closing bracket of root => no need to check for multiple brackets anymore
+                        currentFunc.Pop();
 
                     }
                     else {
-                        if (currentFunc != -1) bracketsOpenedInsideFunc--;
+                        if (currentFunc.Peek() != -1) bracketsOpenedInsideFunc--;
                         bool functionBracketEncountered = false;
                         //Pop from stack to output until '(' is encountered
                         while (stack.Count > 0 && stack.Peek() != '(') {
@@ -176,14 +195,15 @@ namespace Math
                 }
                 else if (c == ',') {
                     // Separator of values inside Root
-                    if (currentFunc != 2) // comma is only allowed inside of Root
+                    if (currentFunc.Peek() != 2) // comma is only allowed inside of Root
                         throw new FormatException("Comma is only allowed inside of Root");
+                    if (commaEncountered) throw new FormatException("Multiple commas inside of Root");
+                    commaEncountered = true;
                     while (stack.Peek() != '[') {
                         if (operators.Contains(stack.Peek())) //Next char is operator -> put a space infront of it
                             postfix += ' ';
                         postfix += stack.Pop();
                     }
-
                     postfix += " ";
                 }
                 else {
@@ -308,13 +328,11 @@ namespace Math
                     }
                 }
             }
-            if (readingNumber) { // Solves the special case when only a constant was enetered without any operations.
+            if (readingNumber) { // Solves the special case when only a constant was entered without any operations.
                 stack.Push(double.Parse(numBuff,
                     NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign |
                     NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite,
                     CultureInfo.InvariantCulture)); //Push the number to the stack
-                numBuff = "";
-                readingNumber = false;
             }
 
             return stack.Pop();

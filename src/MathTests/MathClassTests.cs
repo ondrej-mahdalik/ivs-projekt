@@ -154,17 +154,20 @@ namespace Math.Tests
                 "1+1", "12-4", "3*2", "5/2", "2+3*4", "3/4+2+3*4", "(2+3)*4", "2π*3+4", "2+3^3", "3*3!", "1-4*2",
                 "3*-5", "-4+2*3",
                 "-20*4+80/2", "4/2*-3", "3*4/3", "3(1+1)", "2(4*2)+6", "Abs(-10)", "Abs(10-3(2*3))", "Log(100*100)",
-                "Root(64,2)", "Root(25*5,1+2)", "3Log(10)", "3*(Root(4,2))", "2*(Abs(-2)*2)", "3*(Root(4,2)*2)", "4*(Root(2(1+1),(4-3)*2))","2*(2+Root(25,2))", "Abs(((2+2)*(3+1))*(3-6))", "420"
+                "Root(64,2)", "Root(25*5,1+2)", "3Log(10)", "3*(Root(4,2))", "2*(Abs(-2)*2)", "3*(Root(4,2)*2)",
+                "4*(Root(2(1+1),(4-3)*2))","2*(2+Root(25,2))", "Abs(((2+2)*(3+1))*(3-6))", "420",
+                "Log(Root(Abs(-100),2))", "-(-12345)", "+5", "-6-(+5)", "-(2+(1*2))"
             };
             double[] results = {
                 2, 8, 6, 2.5, 14, 14.75, 20, 6 * System.Math.PI + 4, 29, 18, -7, -15, 2, -40, -6, 4, 6, 22, 10, 8, 4, 8,
-                5, 3, 6, 8, 12, 8, 14, 48, 420
+                5, 3, 6, 8, 12, 8, 14, 48, 420, 1, 12345, 5, -11, -4
             };
             for (int i = 0; i < expressions.Length; i++)
                 Assert.AreEqual(results[i], MathClass.FromString(expressions[i]));
             Assert.ThrowsException<FormatException>(() => MathClass.FromString("2(3*2"));
             Assert.ThrowsException<FormatException>(() => MathClass.FromString("1*/3"));
             Assert.ThrowsException<FormatException>(() => MathClass.FromString("AHOJ"));
+            Assert.ThrowsException<FormatException>(() => MathClass.FromString("Root(1,Abs(2),4)"));
         }
     }
 }
