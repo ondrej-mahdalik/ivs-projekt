@@ -83,6 +83,7 @@ namespace Math
             int currentFunc = -1;
             bool ignoreOpeningBracket = false;
             int openedBracketsCnt = 0;
+            int bracketsOpenedInsideFunc = 0;
             string postfix = "";
             //Start of the core algorithm :
             for (int i = 0; i < input.Length; i++) {
@@ -124,8 +125,9 @@ namespace Math
                 }
                 else if (c == '(') {
                     if (!ignoreOpeningBracket) {
+                        if (currentFunc != -1) bracketsOpenedInsideFunc++;
                         //Not a bracket of a function
-                        if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(') {
+                        if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(' && input[i-1] != ',') {
                             // Implicit multiplication of brackets ( 3(2) => 3*(2) )
                             stack.Push('*');
                             postfix += " ";
@@ -142,23 +144,26 @@ namespace Math
                         input[i + 1] != 'E' && input[i + 1] != 'π' && input[i + 1] != ')' &&
                         input[i + 1] != ',')
                         throw new FormatException("Syntax error: A number directly following a closing bracket.");
-                    if (openedBracketsCnt == 0) {
-                        //Currently in a function
+                    if(currentFunc != -1 && bracketsOpenedInsideFunc==0) { // Closing bracket of a function inside of brackets
                         while (stack.Peek() != '[') {
                             if (operators.Contains(stack.Peek())) //Next char is operator -> put a space infront of it
                                 postfix += ' ';
                             postfix += stack.Pop();
                         }
-
-                        stack.Pop(); //Get rid of the opening bracket [
-                        postfix += " " + specialFuncs[currentFunc];
+                        stack.Pop(); // Get rid of the [
+                        postfix += " " + specialFuncs[currentFunc]; // Add the special function
                         currentFunc = -1;
+
                     }
                     else {
+                        if (currentFunc != -1) bracketsOpenedInsideFunc--;
+                        bool functionBracketEncountered = false;
                         //Pop from stack to output until '(' is encountered
                         while (stack.Count > 0 && stack.Peek() != '(') {
                             if (operators.Contains(stack.Peek())) postfix += " ";
-                            postfix += stack.Pop();
+                            char popped = stack.Pop();
+                            if (popped != '[') postfix += popped;
+                            else functionBracketEncountered = true;
                             if (stack.Peek() != '.' || !char.IsLetterOrDigit(stack.Peek())
                             ) //Popped last digit of a number, insert space
                                 postfix += ' ';
@@ -166,6 +171,7 @@ namespace Math
 
                         stack.Pop(); //Gets rid of the '(' in stack
                         openedBracketsCnt--;
+                        if (functionBracketEncountered) stack.Push('[');
                     }
                 }
                 else if (c == ',') {
@@ -301,6 +307,14 @@ namespace Math
                             break;
                     }
                 }
+            }
+            if (readingNumber) { // Solves the special case when only a constant was enetered without any operations.
+                stack.Push(double.Parse(numBuff,
+                    NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign |
+                    NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite,
+                    CultureInfo.InvariantCulture)); //Push the number to the stack
+                numBuff = "";
+                readingNumber = false;
             }
 
             return stack.Pop();
