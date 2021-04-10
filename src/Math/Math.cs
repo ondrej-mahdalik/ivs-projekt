@@ -50,6 +50,7 @@ namespace Math
             input = input.Replace("Abs", "A"); //Replace names of function with short versions (makes conversion easier)
             input = input.Replace("Log", "L");
             input = input.Replace("Root", "R");
+            input = input.Replace("Pow", "P");
             //Edits to make signed numbers work:
             input = input.Replace(" ", ""); // Delete all spaces
             int openedBracketsCnt = 0;
@@ -91,15 +92,14 @@ namespace Math
 
             operators.Remove('('); // Remove the opening bracket from list of operators
 
-            char[] specialFuncs = {'A', 'L', 'R'};
+            char[] specialFuncs = {'A', 'L', 'R', 'P'};
 
             // Topmost number of the stack currentFunc represents wheter c is inside of a function(Abs,Log,Root) and which one.
-            // -1 = Not in a function, 0 = in Abs, 1 = in Log, 2 = in Root (corresponds with indexes of specialFuncs)
+            // -1 = Not in a function, 0 = in Abs, 1 = in Log, 2 = in Root 3 = in Pow (corresponds with indexes of specialFuncs)
             Stack<int> currentFunc = new Stack<int>();
             currentFunc.Push(-1); // Set the initial state to -1 = not in any function
             
             bool ignoreOpeningBracket = false;
-            bool commaEncountered = false; // Used to check if there are multiple commas inside of a function call
             openedBracketsCnt = 0;
             int bracketsOpenedInsideFunc = 0;
             string postfix = "";
@@ -111,18 +111,19 @@ namespace Math
                     if (char.IsLetter(c)) {
                         //( π is considered a letter)
                         if (c == 'π' || c == 'e' || c == 'E') {
-                            if (i != 0 && !operators.Contains(input[i - 1])
+                            if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != ',' && input[i - 1] != '('
                             ) // Infront of this constant there is another operand
                                 postfix += c + " * "; // Add multiplication in betwen the two operands
                             else
                                 postfix += c; // There is an operator infront of the constant 
                         }
-                        else if (c == 'A' || c == 'L' || c == 'R') {
+                        else if (c == 'A' || c == 'L' || c == 'R' || c == 'P') {
                             ignoreOpeningBracket = true;
-                            for (int j = 0; j < specialFuncs.Length; j++)
+                            for (int j = 0; j < specialFuncs.Length; j++) {
                                 if (c == specialFuncs[j])
                                     currentFunc.Push(j);
-                            if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(') {
+                            }
+                            if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(' && input[i - 1] != ',') {
                                 // Handle implicit multiplication ( 3Log(10) => 3*Log(10) )
                                 stack.Push('*');
                                 postfix += " ";
@@ -170,7 +171,6 @@ namespace Math
                         }
                         stack.Pop(); // Get rid of the [
                         postfix += " " + specialFuncs[currentFunc.Peek()]; // Add the special function
-                        if (currentFunc.Peek() == 2) commaEncountered = false; // Is closing bracket of root => no need to check for multiple brackets anymore
                         currentFunc.Pop();
 
                     }
@@ -195,10 +195,8 @@ namespace Math
                 }
                 else if (c == ',') {
                     // Separator of values inside Root
-                    if (currentFunc.Peek() != 2) // comma is only allowed inside of Root
-                        throw new FormatException("Comma is only allowed inside of Root");
-                    if (commaEncountered) throw new FormatException("Multiple commas inside of Root");
-                    commaEncountered = true;
+                    if (currentFunc.Peek() != 2 && currentFunc.Peek() != 3) // comma is only allowed inside of Root and Power
+                        throw new FormatException("Stray comma");
                     while (stack.Peek() != '[') {
                         if (operators.Contains(stack.Peek())) //Next char is operator -> put a space infront of it
                             postfix += ' ';
@@ -325,6 +323,11 @@ namespace Math
                             operand1 = stack.Pop();
                             stack.Push(Root(operand1, operand2));
                             break;
+                        case 'P': //Power
+                            operand2 = stack.Pop();
+                            operand1 = stack.Pop();
+                            stack.Push(Power(operand1, operand2));
+                            break;
                     }
                 }
             }
@@ -334,7 +337,7 @@ namespace Math
                     NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite,
                     CultureInfo.InvariantCulture)); //Push the number to the stack
             }
-
+            if (stack.Count != 1) throw new FormatException("Syntax error");
             return stack.Pop();
         }
 
