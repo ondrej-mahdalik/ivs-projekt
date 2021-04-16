@@ -4,25 +4,26 @@ all: run
 
 
 Pack: clean packfolder
-	cd ../.. && zip -r $@ ivs-projektzip
+	cd ../.. && zip -r $@ xmahda14_xdenka00_xvacla35_xvrana29
 
 
 packfolder
-	mkdir ../../ivs-projektzip/repo
-	mkdir ../../ivs-projektzip/installer
-	mkdir ../../ivs-projektzip/doc
-	cp -a ../../ivs-projekt ../../ivs-projektzip/repo/
-	cp -a ../installer/. ../../ivs-projetzip/installer/
-	cp -a ../doc/. ../../ivs-projektzip/doc/
+	mkdir ../../xmahda14_xdenka00_xvacla35_xvrana29/repo
+	mkdir ../../xmahda14_xdenka00_xvacla35_xvrana29/installer
+	mkdir ../../xmahda14_xdenka00_xvacla35_xvrana29/doc
+	cp -a ../../ivs-projekt ../../xmahda14_xdenka00_xvacla35_xvrana29/repo/
+	cp -a ../installer/. ../../xmahda14_xdenka00_xvacla35_xvrana29/installer/
+	cp -a ../doc/. ../../xmahda14_xdenka00_xvacla35_xvrana29/doc/
 
 clean:
-#TODO
+	del -rf src/gui/bin src/gui/obj src/Math/bin src/Math/obj src/MathTest/bin src/MathTest/obj src/StandardDeviationTests/bin src/StandardDeviationTests/obj ../../xmahda14_xdenka00_xvacla35_xvrana29/
 
 run: 
-	cd src/gui/bin/Debug && \.gui.exe
+	cd install/ && .\setup.exe
 
 profile:
-	cd src/StandardDeviation/bin/Debug/netcoreapp3.1 && \.StandardDeviation < data.txt
+	cd src/StandardDeviation/bin/Release/netcoreapp3.1 && Get-Content data.txt | \.StandardDeviation
 
 help
-	echo "#TODO"
+	echo "To run our calculator you need to run setup.exe in /installer or you can use make run."
+	echo "Then you need to run gui.exe to start the application."
