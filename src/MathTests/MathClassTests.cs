@@ -119,7 +119,7 @@ namespace Math.Tests
             double[] results = {1, 1, 200, 200, 420, 69.69};
             for (int i = 0; i < numbers.Length; i++) Assert.AreEqual(results[i], MathClass.Abs(results[i]));
         }
-
+        
         [TestMethod]
         public void InfixToPostfixTest()
         {
@@ -146,6 +146,31 @@ namespace Math.Tests
             for (int i = 0; i < funcsExpressions.Length; i++)
                 Assert.AreEqual(funcsResults[i], MathClass.InfixToPostfix(funcsExpressions[i]));
         }
+        
+        [TestMethod]
+        public void DeviationTest()
+        {
+            double[] numbers = { 124, 456 };
+
+            string expression = "Root((1/";
+            expression += numbers.Length - 1 + ")*";
+            expression += "(";
+            foreach (double num in numbers) {
+                expression += "Pow(" + num.ToString() + ",2)" + "+";
+            }
+            expression = expression.Remove(expression.Length - 1); // Odstraní + navíc
+            expression += ")-" + numbers.Length + "* Pow(";
+            expression += "(1/" + numbers.Length + ")*(";
+            foreach (double num in numbers) {
+                expression += num.ToString() + "+";
+            }
+            expression = expression.Remove(expression.Length - 1); // Odstraní + navíc
+                                                                   //  expression += "),2)"; // TODO REMOVE
+            expression += "),2),2)";
+            Console.WriteLine(expression);
+            double result = MathClass.FromString(expression);
+            
+        }
 
         [TestMethod]
         public void FromStringTest()
@@ -156,11 +181,12 @@ namespace Math.Tests
                 "-20*4+80/2", "4/2*-3", "3*4/3", "3(1+1)", "2(4*2)+6", "Abs(-10)", "Abs(10-3(2*3))", "Log(100*100)",
                 "Root(64,2)", "Root(25*5,1+2)", "3Log(10)", "3*(Root(4,2))", "2*(Abs(-2)*2)", "3*(Root(4,2)*2)",
                 "4*(Root(2(1+1),(4-3)*2))","2*(2+Root(25,2))", "Abs(((2+2)*(3+1))*(3-6))", "420",
-                "Log(Root(Abs(-100),2))", "-(-12345)", "+5", "-6-(+5)", "-(2+(1*2))","Root(4,Root(4,2))", "Root(4,Log(100))", "Pow(16,3)", "Root(Pow(2,2),Log(100))", "Pow(4,Root(4,2))"
+                "Log(Root(Abs(-100),2))", "-(-12345)", "+5", "-6-(+5)", "-(2+(1*2))","Root(4,Root(4,2))", "Root(4,Log(100))", "Pow(16,3)", "Root(Pow(2,2),Log(100))", "Pow(4,Root(4,2))",
+                "Root((Pow(2,2)+Pow(123,2)),2)"
             };
             double[] results = {
                 2, 8, 6, 2.5, 14, 14.75, 20, 6 * System.Math.PI + 4, 29, 18, -7, -15, 2, -40, -6, 4, 6, 22, 10, 8, 4, 8,
-                5, 3, 6, 8, 12, 8, 14, 48, 420, 1, 12345, 5, -11, -4, 2, 2, 4096, 2, 16
+                5, 3, 6, 8, 12, 8, 14, 48, 420, 1, 12345, 5, -11, -4, 2, 2, 4096, 2, 16, 123.01625908797584
             };
             for (int i = 0; i < expressions.Length; i++)
                 Assert.AreEqual(results[i], MathClass.FromString(expressions[i]));
