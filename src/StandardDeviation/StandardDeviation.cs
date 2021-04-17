@@ -48,10 +48,33 @@ namespace StandardDeviation
             return result;
         }
 
+        public static double CountStandardDeviationUsingFromString(double[] numbers){
+
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            string expression =  "Root((1/";
+            expression += numbers.Length - 1 + ")*";
+            expression += "(";
+            foreach(double num in numbers){
+                expression += num.ToString(nfi) + "^2" + "+";
+            }
+            expression = expression.Remove(expression.Length - 1); // Odstraní + navíc
+            expression += ")-" + numbers.Length + "* (";
+            expression += "(1/" + numbers.Length + ")*(";
+            foreach(double num in numbers){
+                expression += num.ToString(nfi) + "+";
+            }
+            expression = expression.Remove(expression.Length - 1); // Odstraní + navíc
+            expression += "))^2,2)";
+            double result = MathClass.FromString(expression);
+            return result;
+        }
+
         public static void Main(string[] args)
         {
             string input;
             string parsedInput = "\0";
+            
             while ((input = Console.ReadLine()) != null) {
                 parsedInput += input;
                 parsedInput += ' '; //Number at the end of the line and number at the beginning of a new line need to be split
@@ -61,10 +84,11 @@ namespace StandardDeviation
                     parsedInput = parsedInput.Remove(parsedInput.Length - 1);
                     break;
                 }
-            }
-            parsedInput = parsedInput.Substring(1); //First element is space so it needs to be removed
-            double[] numbers = GetNumbersFromString(parsedInput);
+            } 
+            parsedInput = parsedInput.Substring(1); //First element is space so it needs to be removed 
+            double[] numbers = GetNumbersFromString(parsedInput);  
             Console.WriteLine(CountStandardDeviation(numbers));
+            Console.WriteLine(CountStandardDeviationUsingFromString(numbers));
         }
     }
 }
