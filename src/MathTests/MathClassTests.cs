@@ -148,31 +148,6 @@ namespace Math.Tests
         }
         
         [TestMethod]
-        public void DeviationTest()
-        {
-            double[] numbers = { 124, 456 };
-
-            string expression = "Root((1/";
-            expression += numbers.Length - 1 + ")*";
-            expression += "(";
-            foreach (double num in numbers) {
-                expression += "Pow(" + num.ToString() + ",2)" + "+";
-            }
-            expression = expression.Remove(expression.Length - 1); // Odstraní + navíc
-            expression += ")-" + numbers.Length + "* Pow(";
-            expression += "(1/" + numbers.Length + ")*(";
-            foreach (double num in numbers) {
-                expression += num.ToString() + "+";
-            }
-            expression = expression.Remove(expression.Length - 1); // Odstraní + navíc
-                                                                   //  expression += "),2)"; // TODO REMOVE
-            expression += "),2),2)";
-            Console.WriteLine(expression);
-            double result = MathClass.FromString(expression);
-            
-        }
-
-        [TestMethod]
         public void FromStringTest()
         {
             string[] expressions = {
