@@ -24,9 +24,9 @@ namespace Math
                 case '*':
                 case '/':
                     return 3;
-
                 case '^':
-                    return 4;
+                case 'P':
+                    return 5;
             }
 
             return -1;
@@ -100,6 +100,7 @@ namespace Math
             currentFunc.Push(-1); // Set the initial state to -1 = not in any function
             
             bool ignoreOpeningBracket = false;
+            bool insideNormalBrackets = false;
             openedBracketsCnt = 0;
             int bracketsOpenedInsideFunc = 0;
             string postfix = "";
@@ -146,7 +147,7 @@ namespace Math
                     if (!ignoreOpeningBracket) {
                         if (currentFunc.Peek() != -1) bracketsOpenedInsideFunc++;
                         //Not a bracket of a function
-                        if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(' && input[i-1] != ',') {
+                        if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != '(' && input[i - 1] != ',') {
                             // Implicit multiplication of brackets ( 3(2) => 3*(2) )
                             stack.Push('*');
                             postfix += " ";
@@ -154,9 +155,12 @@ namespace Math
 
                         stack.Push(c);
                         openedBracketsCnt++;
+                        insideNormalBrackets = true;
                     }
-                    else // Is opening bracket of a function -> will be ignored
+                    else { // Is opening bracket of a function -> will be ignored
                         ignoreOpeningBracket = false;
+                        insideNormalBrackets = false;
+                    }
                 }
                 else if (c == ')') {
                     if (i != input.Length - 1 && !operators.Contains(input[i + 1]) && input[i + 1] != 'e' &&
@@ -174,6 +178,10 @@ namespace Math
                         currentFunc.Pop();
 
                     }
+                    else if(currentFunc.Count > 2 &&  !insideNormalBrackets ) {
+                        postfix += " " + specialFuncs[currentFunc.Pop()];
+                        stack.Pop(); // get rid of [
+                    }
                     else {
                         if (currentFunc.Peek() != -1) bracketsOpenedInsideFunc--;
                         bool functionBracketEncountered = false;
@@ -190,6 +198,7 @@ namespace Math
 
                         stack.Pop(); //Gets rid of the '(' in stack
                         openedBracketsCnt--;
+                        insideNormalBrackets = false;
                         if (functionBracketEncountered) stack.Push('[');
                     }
                 }
@@ -210,7 +219,7 @@ namespace Math
                         throw new FormatException("Char is not one of the supported operators");
                     if (i != 0 && c != '-' && operators.Contains(input[i - 1]))
                         throw new FormatException(); // Syntax error : Two operators next to each other
-                    if (stack.Count == 0 || Prec(c) > Prec(stack.Peek()) || stack.Contains('(')) {
+                    if (stack.Count == 0 || Prec(c) > Prec(stack.Peek()) ) {
                         stack.Push(c);
                         postfix += ' ';
                     }
