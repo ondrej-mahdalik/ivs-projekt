@@ -117,6 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Numbers
+----------
+
+- You can enter both integers and numbers with a decimal part.
+The decimal part is split with a dot (.).
+- To write a negative number, use the minus (-) operator in front of it.
+
+Operators
+----------
+
+- All 4 basic operators are available and can be used in an expression multiple times.
+
+Brackets
+--------
+
+- Brackets can be used for setting own calculation order.
+- They are also used in functions.
+
+Backspace and Clear
+---------------------
+
+- Backspace (⌫) button deletes the last character in the current expression.
+- Clear (C) button clears the whole expression.
+
+Copy and Paste
+----------------
+
+- Copy button copies the current expression (or error message) to clipboard.
+- Paste button adds the clipboard content to the expression.
+- Caution! The validity of the clipboard content is not checked - e.g. you can paste any text.
+
+Calculate Expression
+---------------------
+
+- The equals (=) button is used for calculating the expression.
+- The result (or error message) will replace the entered expression.
+
+Error Handling
+---------------
+
+- If you type an invalid expression, an error message will appear in the expression box.
+- You cannot type or paste while the error is being displayed.
+- To continue working, you need to press the Clear (C) button.</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Root
+-----
+
+- The root (√) function calculates n-th root of a desired number.
+- Usage: Root(x,n) where x is the number to calculate the root of and n is the root.
+
+Logarithm
+----------
+
+- The Log(x) function calculates decadical logarithm of the desired number.
+- Usage: Log(x) where x is the number to calculate logarithm of.
+
+Absolute Value
+---------------
+
+- The Abs(x) function calculates absolute value of the desired number.
+- Usage: Abs(x) where x is the number to calculate absolute value of.
+
+Power
+-------
+
+- The power function calculates a number raised to a power of y.
+- Usage: x^y where x is the base and y is the exponent.
+
+Factorial
+---------
+
+- The factorial function calculates the factorial of the desired number.
+- Usage: x! where x is the number to calculate factorial of.</value>
+  </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Numbers
 ----------
@@ -138,83 +214,6 @@ Other Shortcuts
 - Bracket shortcuts are supported
 - Backspace button is supported as well.
 - Delete key acts as the Clear button.</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Numbers
-----------
-
-- You can enter both whole numbers and numbers with a decimal part.
-The decimal part is splitted with a dot (.).
-- To write a negative number, use the minus (-) operator in front of it.
-
-Operators
-----------
-
-- All 4 basic operators are available and can be used in an expression multiple times.
-
-Brackets
---------
-
-- Brackets can be used for setting own calculation order.
-- They are also being used in functions.
-
-Backspace and Clear
----------------------
-
-- Backspace (⌫) button deletes the last character in the current expression.
-- Clear (C) button clears the whole expression.
-
-Copy and Paste
-----------------
-
-- Copy button copies the current expression (or error message) in the clipboard.
-- Paste button adds the clipboard content to the expression.
-- Caution! The validity of the clipboard content is not being checked - e.g. you can paste any text.
-
-Calculate Expression
----------------------
-
-- The equals (=) button is used for calculating the expression.
-- The result (or error message) will replace the entered expression.
-
-Error Handling
----------------
-
-- If you type an invalid expression, an error message will appear in the expression box.
-- You cannot type or paste while the error is being displayed.
-- To continue working, you need to press the Clear (C) button.
-</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Root
------
-
-- The root (√) function calculates n root of a desired number.
-- Usage: Root(x,n) where x is the number to calculate the root of and n is the root.
-
-Logarithm
-----------
-
-- The Log(x) function calculates decadical logarithm of the desired number.
-- Usage: Log(x) where x is the number to calculate logarithm of.
-
-Absolute Value
----------------
-
-- The Abs(x) function calculates absolute value of the desired number.
-- Usage: Abs(x) where x i the number to calculate absolute value of.
-
-Power
--------
-
-- The power function calculates a number raised to a power of y.
-- Usage: x^y where x is the base and y is the exponent.
-
-Factorial
----------
-
-- The factorial function calculates the factorial of the desired number.
-- Usage: x! where x is the number to calculate factorial of.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
