@@ -152,7 +152,7 @@ Copy and Paste
 Calculate Expression
 ---------------------
 
-- The equals (=) button is used for calculating the expression.
+- The equals (=) button is used to calculate the expression.
 - The result (or error message) will replace the entered expression.
 
 Error Handling
@@ -172,7 +172,7 @@ Error Handling
 Logarithm
 ----------
 
-- The Log(x) function calculates decadical logarithm of the desired number.
+- The Log(x) function calculates the decadic logarithm of the desired number.
 - Usage: Log(x) where x is the number to calculate logarithm of.
 
 Absolute Value
