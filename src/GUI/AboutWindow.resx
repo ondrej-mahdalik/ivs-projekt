@@ -118,10 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>Easy-to-use calculator that supports all basic operations and a few math functions like Abs, Log and Root.
-Created as an IVS project in 2021.
+    <value>Simple calculator that supports all basic operations, respects order of operations and offers a few extra functions.
 
-Authors: Ondřej Mahdalík, Aram Denk, Jan Václavík and Alexandr Vrána.</value>
+Created as an IVS group project in 2021.
+
+Authors:
+Ondřej Mahdalík (xmahda14)
+Aram Denk (xdenka00)
+Jan Václavík (xvacla35)
+Alexandr Vrána (xvrana29)</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

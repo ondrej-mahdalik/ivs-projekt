@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Math;
@@ -7,7 +8,7 @@ namespace GUI
 {
     public partial class MainWindow : Form
     {
-        bool writeEnabled = true;
+        private bool writeEnabled = true;
 
         public MainWindow()
         {
@@ -54,7 +55,13 @@ namespace GUI
         {
             // Ctrl + C
             if (e.Control && e.KeyCode == Keys.C) {
-                Clipboard.SetText(txtResult.Text);
+                btnCopy.PerformClick();
+                return;
+            }
+
+            // Ctrl + V
+            if (e.Control && e.KeyCode == Keys.V) {
+                btnPaste.PerformClick();
                 return;
             }
 
@@ -73,7 +80,7 @@ namespace GUI
                 case Keys.OemPeriod:
                     btnDecimal.PerformClick();
                     break;
-                    
+
                 case Keys.Oemcomma:
                     btnComma.PerformClick();
                     break;
@@ -166,18 +173,47 @@ namespace GUI
 
         private void BtnBackspaceClick(object sender, EventArgs e)
         {
-            if (txtResult.Text.Length > 0)
+            if (writeEnabled && txtResult.Text.Length > 0)
                 txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void BtnCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtResult.Text);
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
+        }
+
+        private void BtnPaste_Click(object sender, EventArgs e)
+        {
+            if (writeEnabled)
+                txtResult.Text += Clipboard.GetText();
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
+        }
+
+        private void ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             new HelpWindow().Show();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new AboutWindow().Show();
+        }
+
+        private void stayOnTopToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = stayOnTopToolStripMenuItem.Checked;
+            if (stayOnTopToolStripMenuItem.Checked)
+                stayOnTopToolStripMenuItem.ForeColor = Color.ForestGreen;
+            else
+                stayOnTopToolStripMenuItem.ForeColor = default;
         }
     }
 }
