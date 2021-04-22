@@ -54,7 +54,7 @@ namespace StandardDeviation
             nfi.NumberDecimalSeparator = ".";
             string expression =  "Root((1/";
             expression += numbers.Length - 1 + ")*";
-            expression += "(";
+            expression += "((";
             foreach(double num in numbers){
                 expression += num.ToString(nfi) + "^2" + "+";
             }
@@ -65,7 +65,7 @@ namespace StandardDeviation
                 expression += num.ToString(nfi) + "+";
             }
             expression = expression.Remove(expression.Length - 1); // Odstraní + navíc
-            expression += "))^2,2)";
+            expression += "))^2),2)";
             double result = MathClass.FromString(expression);
             return result;
         }
