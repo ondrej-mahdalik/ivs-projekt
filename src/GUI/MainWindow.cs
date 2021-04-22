@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using Math;
@@ -204,6 +205,15 @@ namespace GUI
         private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new AboutWindow().Show();
+        }
+
+        private void stayOnTopToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = stayOnTopToolStripMenuItem.Checked;
+            if (stayOnTopToolStripMenuItem.Checked)
+                stayOnTopToolStripMenuItem.ForeColor = Color.ForestGreen;
+            else
+                stayOnTopToolStripMenuItem.ForeColor = default;
         }
     }
 }

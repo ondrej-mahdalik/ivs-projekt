@@ -64,6 +64,7 @@ namespace GUI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stayOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -663,11 +664,12 @@ namespace GUI
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
-            this.menuStrip1.Location = new System.Drawing.Point(228, 0);
+            this.toolStripMenuItem2,
+            this.stayOnTopToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(28, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(104, 24);
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(304, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -682,9 +684,19 @@ namespace GUI
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 20);
             this.toolStripMenuItem2.Text = "Help";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
+            // 
+            // stayOnTopToolStripMenuItem
+            // 
+            this.stayOnTopToolStripMenuItem.CheckOnClick = true;
+            this.stayOnTopToolStripMenuItem.Name = "stayOnTopToolStripMenuItem";
+            this.stayOnTopToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.stayOnTopToolStripMenuItem.Text = "Stay on Top";
+            this.stayOnTopToolStripMenuItem.ToolTipText = "The window will stay above others even when not focused.";
+            this.stayOnTopToolStripMenuItem.CheckedChanged += new System.EventHandler(this.stayOnTopToolStripMenuItem_CheckedChanged);
             // 
             // MainWindow
             // 
@@ -744,6 +756,7 @@ namespace GUI
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnFactorial;
         private System.Windows.Forms.Button btnPower;
+        private System.Windows.Forms.ToolStripMenuItem stayOnTopToolStripMenuItem;
     }
 }
 
