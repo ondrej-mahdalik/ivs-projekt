@@ -133,7 +133,7 @@ Operators
 Brackets
 --------
 
-- Brackets can be used for setting own calculation order.
+- Brackets can be used to set a different order of calculations.
 - They are also used in functions.
 
 Backspace and Clear
@@ -191,7 +191,7 @@ Factorial
 ---------
 
 - The factorial function calculates the factorial of the desired number.
-- Usage: x! where x is the number to calculate factorial of.</value>
+- Usage: x! where x is the number to calculate the factorial of.</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Numbers
@@ -205,7 +205,7 @@ Operators
 
 - The operators on NumPad can be used to type.
 - Dash for separating numbers in functions is supported.
-- Enter key can be used for calculating expressions.
+- Enter key can be used to calculate the expression.
 
 Other Shortcuts
 ----------------
