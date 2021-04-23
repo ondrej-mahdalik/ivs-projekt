@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 
+/// <summary>
+///     User-friendly graphic interface for the Math library.
+/// </summary>
 namespace GUI
 {
+    /// <summary>
+    ///     Main class of the Program.
+    /// </summary>
     internal static class Program
     {
         /// <summary>

@@ -4,9 +4,6 @@ using System.Globalization;
 using System.Windows.Forms;
 using Math;
 
-/// <summary>
-///     User-friendly graphic interface for the Math library.
-/// </summary>
 namespace GUI
 {
     /// <summary>
