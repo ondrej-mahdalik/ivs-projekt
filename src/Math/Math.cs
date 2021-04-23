@@ -414,7 +414,7 @@ namespace Math
         }
 
         /// <summary>
-        ///     Calculates the factorial of a number. Only supports whole numbers.
+        ///     Calculates the factorial of a number. Only supports positive integers and zero.
         /// </summary>
         /// <param name="input">Number</param>
         /// <returns>Factorial of the number.</returns>
