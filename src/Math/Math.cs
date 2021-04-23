@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Globalization;
 
+/// <summary>
+/// Provides mathematical operations and functions.
+/// </summary>
 namespace Math
 {
     /// <summary>
