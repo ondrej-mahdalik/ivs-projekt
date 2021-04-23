@@ -1,9 +1,14 @@
 using System;
 using System.Globalization;
 using Math;
-
+/// <summary>
+///     Calculates standard deviation of given numbers.
+/// </summary>
 namespace StandardDeviation
 {
+    /// <summary>
+    ///     Calculates standard deviation of given numbers.
+    /// </summary>
     public class StandardDeviationClass
     {
         /// <summary>
@@ -47,7 +52,11 @@ namespace StandardDeviation
             double result = MathClass.Root(sumOfDeviations / (numbers.Length - 1), 2);
             return result;
         }
-
+        /// <summary>
+        ///     Counts the standard deviation using the function FromString.
+        /// </summary>
+        /// <param name="numbers">Data to count the standard deviation from.</param>
+        /// <returns>Standard deviation calculated with the FromString function.</returns>
         public static double CountStandardDeviationUsingFromString(double[] numbers){
 
             NumberFormatInfo nfi = new NumberFormatInfo();
@@ -69,7 +78,9 @@ namespace StandardDeviation
             double result = MathClass.FromString(expression);
             return result;
         }
-
+        /// <summary>
+        ///     Reads numbers from standard input and prints standard deviation of them, calculated by two different methods.
+        /// </summary>
         public static void Main(string[] args)
         {
             string input;

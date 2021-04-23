@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using System.Globalization;
 
+/// <summary>
+/// Provides mathematical operations and functions.
+/// </summary>
 namespace Math
 {
+    /// <summary>
+    /// Provides mathematical operations and functions.
+    /// </summary>
     public class MathClass
     {
         /// <summary>
@@ -33,18 +39,18 @@ namespace Math
         }
 
         /// <summary>
-        ///     Converts expression in infix format to expression in postfix format
-        ///     Supported operators and functions: + - * / ^ Abs(num) Log(num) Root(num,index)
-        ///     Supported constants : e π
+        ///     Converts an expression in infix format to an expression in postfix format.
+        ///     Supported operators and functions: + - * / ^ Abs(num) Log(num) Root(num,index).
+        ///     Supported constants : e PI(entered as unicode character U+03C0).
         /// </summary>
         /// <param name="input">Infix expression</param>
         /// <returns>Postfix expression</returns>
         public static string InfixToPostfix(string input)
         {
             Stack<char> stack = new Stack<char>();
-            IList<char> operators = new List<char> {'-', '+', '*', '/', '^'}; //List of supported operators
+            IList<char> operators = new List<char> { '-', '+', '*', '/', '^' }; //List of supported operators
 
-            if (input.Split('(').Length != input.Split(')').Length)
+            if (input.Split('(').Length != input.Split(')').Length) // Check if all brackets were closed
                 throw new FormatException("Not all brackets were closed or opened");
 
             input = input.Replace("Abs", "A"); //Replace names of function with short versions (makes conversion easier)
@@ -75,7 +81,7 @@ namespace Math
                     int index = 0;
                     if (minusIndex == -1) index = plusIndex;
                     else if (plusIndex == -1) index = minusIndex;
-                    else index = minusIndex < plusIndex ? minusIndex : plusIndex ; 
+                    else index = minusIndex < plusIndex ? minusIndex : plusIndex;
                     input = input.Insert(index + 1, "(0"); //Add opening bracket and 0 infront of the sign
                     openedBracketsCnt = 0;
                     int loopIndex = index + 4; // Index of the first digit of the signed number
@@ -92,13 +98,13 @@ namespace Math
 
             operators.Remove('('); // Remove the opening bracket from list of operators
 
-            char[] specialFuncs = {'A', 'L', 'R', 'P'};
+            char[] specialFuncs = { 'A', 'L', 'R', 'P' };
 
             // Topmost number of the stack currentFunc represents wheter c is inside of a function(Abs,Log,Root) and which one.
             // -1 = Not in a function, 0 = in Abs, 1 = in Log, 2 = in Root 3 = in Pow (corresponds with indexes of specialFuncs)
             Stack<int> currentFunc = new Stack<int>();
             currentFunc.Push(-1); // Set the initial state to -1 = not in any function
-            
+
             bool ignoreOpeningBracket = false;
             bool insideNormalBrackets = false;
             openedBracketsCnt = 0;
@@ -110,7 +116,6 @@ namespace Math
                 if (char.IsLetterOrDigit(c) || c == '.') {
                     // Character is operand (number or constant) or one of (Abs, Log, Root)
                     if (char.IsLetter(c)) {
-                        //( π is considered a letter)
                         if (c == 'π' || c == 'e' || c == 'E') {
                             if (i != 0 && !operators.Contains(input[i - 1]) && input[i - 1] != ',' && input[i - 1] != '('
                             ) // Infront of this constant there is another operand
@@ -167,7 +172,7 @@ namespace Math
                         input[i + 1] != 'E' && input[i + 1] != 'π' && input[i + 1] != ')' &&
                         input[i + 1] != ',')
                         throw new FormatException("Syntax error: A number directly following a closing bracket.");
-                    if(currentFunc.Peek() != -1 && bracketsOpenedInsideFunc==0) { // Closing bracket of a function inside of brackets
+                    if (currentFunc.Peek() != -1 && bracketsOpenedInsideFunc == 0) { // Closing bracket of a function inside of brackets
                         while (stack.Peek() != '[') {
                             if (operators.Contains(stack.Peek())) //Next char is operator -> put a space infront of it
                                 postfix += ' ';
@@ -178,7 +183,7 @@ namespace Math
                         currentFunc.Pop();
 
                     }
-                    else if(currentFunc.Count > 2 &&  !insideNormalBrackets ) {
+                    else if (currentFunc.Count > 2 && !insideNormalBrackets) {
                         postfix += " " + specialFuncs[currentFunc.Pop()];
                         stack.Pop(); // get rid of [
                     }
@@ -219,7 +224,7 @@ namespace Math
                         throw new FormatException("Char is not one of the supported operators");
                     if (i != 0 && c != '-' && operators.Contains(input[i - 1]))
                         throw new FormatException(); // Syntax error : Two operators next to each other
-                    if (stack.Count == 0 || Prec(c) > Prec(stack.Peek()) ) {
+                    if (stack.Count == 0 || Prec(c) > Prec(stack.Peek())) {
                         stack.Push(c);
                         postfix += ' ';
                     }
@@ -249,13 +254,13 @@ namespace Math
         }
 
         /// <summary>
-        ///     Processes string input, performs all operations in correct order and returns result.
-        ///     Supported operators and functions: + - * / ^ Abs(num) Log(num) Root(num,index)
-        ///     Supported constants : e π
-        ///     Uses dot as decimal separator
+        ///     Processes a string input, performs all the operations in a correct order and returns the result.
+        ///     Supported operators and functions: + - * / ^ Abs(num) Log(num) Root(num,index) Pow(num,exponent).
+        ///     Supported constants : e PI(entered as unicode character U+03C0).
+        ///     Uses dot as decimal separator.
         /// </summary>
         /// <param name="input">Expression to proccess</param>
-        /// <returns>Final result</returns>
+        /// <returns>Result of given mathematical expression.</returns>
         public static double FromString(string input)
         {
             if (input == string.Empty) throw new ArgumentNullException();
@@ -353,9 +358,9 @@ namespace Math
         /// <summary>
         ///     Adds one number to another.
         /// </summary>
-        /// <param name="inputA">Number to proccess</param>
-        /// <param name="inputB">Number to proccess</param>
-        /// <returns>Result</returns>
+        /// <param name="inputA">First number</param>
+        /// <param name="inputB">Second number</param>
+        /// <returns>The two numbers added together.</returns>
         public static double Add(double inputA, double inputB)
         {
             return inputA + inputB;
@@ -364,9 +369,9 @@ namespace Math
         /// <summary>
         ///     Substracts one number from another.
         /// </summary>
-        /// <param name="inputA">Number to subtract from</param>
-        /// <param name="inputB">Number to </param>
-        /// <returns>Result</returns>
+        /// <param name="inputA">Number to be subtracted from</param>
+        /// <param name="inputB">Number to subtract</param>
+        /// <returns>Result of subtracting inputB from inputA.</returns>
         public static double Subtract(double inputA, double inputB)
         {
             return inputA - inputB;
@@ -375,9 +380,9 @@ namespace Math
         /// <summary>
         ///     Divides one number by another.
         /// </summary>
-        /// <param name="inputA"></param>
-        /// <param name="inputB"></param>
-        /// <returns>Result</returns>
+        /// <param name="inputA">dividend</param>
+        /// <param name="inputB">divisor</param>
+        /// <returns>Dividend divided by divisor.</returns>
         public static double Divide(double inputA, double inputB)
         {
             if (inputB == 0) throw new DivideByZeroException();
@@ -387,9 +392,9 @@ namespace Math
         /// <summary>
         ///     Multiplies one number by another.
         /// </summary>
-        /// <param name="inputA"></param>
-        /// <param name="inputB"></param>
-        /// <returns>Result</returns>
+        /// <param name="inputA">First number</param>
+        /// <param name="inputB">Second number</param>
+        /// <returns>First number multiplied by second number.</returns>
         public static double Multiply(double inputA, double inputB)
         {
             return inputA * inputB;
@@ -397,10 +402,10 @@ namespace Math
 
 
         /// <summary>
-        ///     Returns the absolute value of the input number.
+        ///     Calculates absolute value of a number.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns>Result</returns>
+        /// <param name="input">Number</param>
+        /// <returns>Absolute value of the number.</returns>
         public static double Abs(double input)
         {
             if (input < 0)
@@ -409,10 +414,10 @@ namespace Math
         }
 
         /// <summary>
-        ///     Returns a factorial of the input number. Only supports whole numbers.
+        ///     Calculates the factorial of a number. Only supports positive integers and zero.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns>Result</returns>
+        /// <param name="input">Number</param>
+        /// <returns>Factorial of the number.</returns>
         public static double Factorial(double input)
         {
             if (input < 0.0 || input % 1 != 0.0) throw new ArgumentOutOfRangeException();
@@ -424,11 +429,11 @@ namespace Math
         }
 
         /// <summary>
-        ///     Returns input^exponent.
+        ///     Raises a number to a given power.
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="exponent"></param>
-        /// <returns>Result</returns>
+        /// <param name="input">Base number</param>
+        /// <param name="exponent">Exponent</param>
+        /// <returns>Base number raised to the exponent.</returns>
         public static double Power(double input, double exponent)
         {
             double result = System.Math.Pow(input, exponent);
@@ -438,24 +443,24 @@ namespace Math
         }
 
         /// <summary>
-        ///     Returns index-th root of a radicant.
+        ///     Calculates the n-th root of a number.
         /// </summary>
-        /// <param name="radicant"></param>
-        /// <param name="index"></param>
-        /// <returns>Result</returns>
-        public static double Root(double radicant, double index)
+        /// <param name="radicand">number</param>
+        /// <param name="index">index</param>
+        /// <returns>Index-th root of the number.</returns>
+        public static double Root(double radicand, double index)
         {
-            if (index == 0 || index % 2 == 0 && radicant < 0) throw new ArithmeticException();
-            double result = System.Math.Pow(System.Math.Abs(radicant), 1.0 / index);
-            if (radicant < 0) result = -result;
+            if (index == 0 || index % 2 == 0 && radicand < 0) throw new ArithmeticException();
+            double result = System.Math.Pow(System.Math.Abs(radicand), 1.0 / index);
+            if (radicand < 0) result = -result;
             return result;
         }
 
         /// <summary>
-        ///     Returns the decadic logarithm of input.
+        ///     Calculates the decadic logarithm of a number.
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns>Result</returns>
+        /// <param name="input">number</param>
+        /// <returns>Base 10 logarithm of the number.</returns>
         public static double Logarithm(double input)
         {
             double result = System.Math.Log10(input);
