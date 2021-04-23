@@ -222,9 +222,9 @@ namespace Math
                 else {
                     //Character should be an OPERATOR
                     if (!operators.Contains(c)) // Char is not one of the supported operators -> throws exception 
-                        throw new FormatException("Char is not one of the supported operators");
+                        throw new FormatException("Unsupported character");
                     if (i != 0 && c != '-' && operators.Contains(input[i - 1]))
-                        throw new FormatException(); // Syntax error : Two operators next to each other
+                        throw new FormatException("Syntax error: two operators next to each other"); // Syntax error : Two operators next to each other
                     if (stack.Count == 0 || Prec(c) > Prec(stack.Peek())) {
                         stack.Push(c);
                         postfix += ' ';
@@ -295,55 +295,60 @@ namespace Math
                     }
 
                     double operand1, operand2;
-                    switch (c) {
-                        // Performs the given operation on numbers on top of the stack and pushes the result to the stack
-                        case '+':
-                            operand2 = stack.Pop();
-                            operand1 = stack.Pop();
-                            stack.Push(Add(operand1, operand2));
-                            break;
-                        case '-':
-                            operand2 = stack.Pop();
-                            operand1 = stack.Pop();
-                            stack.Push(Subtract(operand1, operand2));
-                            break;
-                        case '*':
-                            operand2 = stack.Pop();
-                            operand1 = stack.Pop();
-                            stack.Push(Multiply(operand1, operand2));
-                            break;
-                        case '/':
-                            operand2 = stack.Pop();
-                            operand1 = stack.Pop();
-                            stack.Push(Divide(operand1, operand2));
-                            break;
-                        case '^':
-                            operand2 = stack.Pop();
-                            operand1 = stack.Pop();
-                            stack.Push(Power(operand1, operand2));
-                            break;
-                        case '!':
-                            operand1 = stack.Pop();
-                            stack.Push(Factorial(operand1));
-                            break;
-                        case 'A': //Abs
-                            operand1 = stack.Pop();
-                            stack.Push(Abs(operand1));
-                            break;
-                        case 'L': //Log
-                            operand1 = stack.Pop();
-                            stack.Push(Logarithm(operand1));
-                            break;
-                        case 'R': //Root
-                            operand2 = stack.Pop();
-                            operand1 = stack.Pop();
-                            stack.Push(Root(operand1, operand2));
-                            break;
-                        case 'P': //Power
-                            operand2 = stack.Pop();
-                            operand1 = stack.Pop();
-                            stack.Push(Power(operand1, operand2));
-                            break;
+                    try {
+                        switch (c) {
+                            // Performs the given operation on numbers on top of the stack and pushes the result to the stack
+                            case '+':
+                                operand2 = stack.Pop();
+                                operand1 = stack.Pop();
+                                stack.Push(Add(operand1, operand2));
+                                break;
+                            case '-':
+                                operand2 = stack.Pop();
+                                operand1 = stack.Pop();
+                                stack.Push(Subtract(operand1, operand2));
+                                break;
+                            case '*':
+                                operand2 = stack.Pop();
+                                operand1 = stack.Pop();
+                                stack.Push(Multiply(operand1, operand2));
+                                break;
+                            case '/':
+                                operand2 = stack.Pop();
+                                operand1 = stack.Pop();
+                                stack.Push(Divide(operand1, operand2));
+                                break;
+                            case '^':
+                                operand2 = stack.Pop();
+                                operand1 = stack.Pop();
+                                stack.Push(Power(operand1, operand2));
+                                break;
+                            case '!':
+                                operand1 = stack.Pop();
+                                stack.Push(Factorial(operand1));
+                                break;
+                            case 'A': //Abs
+                                operand1 = stack.Pop();
+                                stack.Push(Abs(operand1));
+                                break;
+                            case 'L': //Log
+                                operand1 = stack.Pop();
+                                stack.Push(Logarithm(operand1));
+                                break;
+                            case 'R': //Root
+                                operand2 = stack.Pop();
+                                operand1 = stack.Pop();
+                                stack.Push(Root(operand1, operand2));
+                                break;
+                            case 'P': //Power
+                                operand2 = stack.Pop();
+                                operand1 = stack.Pop();
+                                stack.Push(Power(operand1, operand2));
+                                break;
+                        }
+                    }
+                    catch (InvalidOperationException) {  // InvalidOperationException("Stack is empty") is thrown, when the given expression has invalid syntax, and the error wasn't detected in InfixToPostfix.
+                        throw new FormatException("Syntax error"); //Throw FormatException("Syntax error") instead, as it provides more usefull information to the user.
                     }
                 }
             }
@@ -363,6 +368,7 @@ namespace Math
         /// <param name="inputA">First number</param>
         /// <param name="inputB">Second number</param>
         /// <returns>The two numbers added together.</returns>
+        /// <exception cref="FormatException">When expression is in invalid format uses unsupported operators, functions or constants.</exception>
         public static double Add(double inputA, double inputB)
         {
             return inputA + inputB;
@@ -388,7 +394,7 @@ namespace Math
         /// <exception cref="DivideByZeroException">When the inputB is zero.</exception>
         public static double Divide(double inputA, double inputB)
         {
-            if (inputB == 0) throw new DivideByZeroException();
+            if (inputB == 0) throw new DivideByZeroException("Division by zero attempted");
             return inputA / inputB;
         }
 
@@ -421,9 +427,10 @@ namespace Math
         /// </summary>
         /// <param name="input">Number</param>
         /// <returns>Factorial of the number.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">When input is not nonnegative integer.</exception>
         public static double Factorial(double input)
         {
-            if (input < 0.0 || input % 1 != 0.0) throw new ArgumentOutOfRangeException();
+            if (input < 0.0 || input % 1 != 0.0) throw new ArgumentOutOfRangeException("Unsupported operation");
             ulong result = 1;
             for (ulong i = 2; i <= input; i++)
                 result = checked(result *
@@ -441,7 +448,7 @@ namespace Math
         public static double Power(double input, double exponent)
         {
             double result = System.Math.Pow(input, exponent);
-            if (double.IsInfinity(result) || double.IsNaN(result)) throw new NotFiniteNumberException();
+            if (double.IsInfinity(result) || double.IsNaN(result)) throw new NotFiniteNumberException("Number is too big");
 
             return result;
         }
@@ -455,7 +462,7 @@ namespace Math
         /// <exception cref="ArithmeticException">When the index is 0 or even in combination with negative radicant.</exception>
         public static double Root(double radicand, double index)
         {
-            if (index == 0 || index % 2 == 0 && radicand < 0) throw new ArithmeticException();
+            if (index == 0 || index % 2 == 0 && radicand < 0) throw new ArithmeticException("Math error");
             double result = System.Math.Pow(System.Math.Abs(radicand), 1.0 / index);
             if (radicand < 0) result = -result;
             return result;
@@ -466,11 +473,11 @@ namespace Math
         /// </summary>
         /// <param name="input">number</param>
         /// <returns>Base 10 logarithm of the number.</returns>
-        /// <exception cref="NotFiniteNumberException">WHen the result is not a valid number.</exception>
+        /// <exception cref="NotFiniteNumberException">When the result is not a valid number.</exception>
         public static double Logarithm(double input)
         {
             double result = System.Math.Log10(input);
-            if (double.IsInfinity(result) || double.IsNaN(result)) throw new NotFiniteNumberException();
+            if (double.IsInfinity(result) || double.IsNaN(result)) throw new NotFiniteNumberException("Number is too big");
             return result;
         }
     }
