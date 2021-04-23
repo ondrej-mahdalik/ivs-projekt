@@ -8,7 +8,7 @@ namespace GUI
 {
     /// <summary>
     ///     Main window of the application.
-    ///     contains the interface to control all calculator functions.
+    ///     Contains the interface to control all calculator functions.
     /// </summary>
     public partial class MainWindow : Form
     {
