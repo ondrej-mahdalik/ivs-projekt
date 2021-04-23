@@ -6,7 +6,7 @@ namespace GUI
     internal static class Program
     {
         /// <summary>
-        ///     Hlavní vstupní bod aplikace.
+        ///     Main application method.
         /// </summary>
         [STAThread]
         private static void Main()

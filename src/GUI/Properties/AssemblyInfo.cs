@@ -1,9 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-// Obecné informace o sestavení se řídí přes následující 
-// sadu atributů. Změnou hodnot těchto atributů se upraví informace
-// přidružené k sestavení.
+// Change these attribute values in local assembly info to modify the information.
 [assembly: AssemblyTitle("Calculator App")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -18,18 +16,15 @@ using System.Runtime.InteropServices;
 // modelu COM, nastavte atribut ComVisible daného typu na hodnotu True.
 [assembly: ComVisible(false)]
 
-// Následující GUID se používá pro ID knihovny typů, pokud je tento projekt vystavený pro COM.
+// The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("9dcd8d2c-a4bf-4666-a8ad-f2ad22a0551e")]
 
-// Informace o verzi sestavení se skládá z těchto čtyř hodnot:
-//
-//      Hlavní verze
-//      Podverze
-//      Číslo sestavení
-//      Revize
-//
-// Můžete zadat všechny hodnoty nebo nastavit výchozí číslo buildu a revize
-// pomocí zástupného znaku * takto:
-// [assembly: AssemblyVersion("1.0.*")]
+// Version information for an assembly consists of the following four values:
+//      Major Version
+//      Minor Version
+//      Day Number
+//      Revision 
+// You can specify all the values or you can default the Build and Revision Numbers 
+// by using the '*' as shown below: [assembly: AssemblyVersion("year.month.day.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

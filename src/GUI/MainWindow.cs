@@ -6,10 +6,18 @@ using Math;
 
 namespace GUI
 {
+    /// <summary>
+    /// Main window of the application.
+    /// contains the interface to control all calculator functions.
+    /// </summary>
     public partial class MainWindow : Form
     {
         private bool writeEnabled = true;
 
+        /// <summary>
+        /// Constructor, initializes form components.
+        /// Use .Show() to display the form.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
