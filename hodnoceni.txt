@@ -1,4 +1,4 @@
 xmahda14 - 104 (GUI, Instalátor, Správa GitHub repozitáře, Vedení týmu)
 xdenka00 - 104 (Matematická knihovna, Standardní odchylka)
 xvacla35 - 96  (Testy, Stadardní odchylka)
-xvrana29 - 96  (Makefile, Profiling)
+xvrana29 - 96  (Makefile, Profiling, Návod na instalaci)
