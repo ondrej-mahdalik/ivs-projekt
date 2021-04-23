@@ -42,6 +42,7 @@ namespace Math
         /// </summary>
         /// <param name="input">Infix expression</param>
         /// <returns>Postfix expression</returns>
+        /// <exception cref="FormatException">When expression is in invalid format uses unsupported operators, functions or constants.</exception>
         public static string InfixToPostfix(string input)
         {
             Stack<char> stack = new Stack<char>();
@@ -258,6 +259,7 @@ namespace Math
         /// </summary>
         /// <param name="input">Expression to proccess</param>
         /// <returns>Result of given mathematical expression.</returns>
+        /// <exception cref="FormatException">When expression is in invalid format uses unsupported operators, functions or constants.</exception>
         public static double FromString(string input)
         {
             if (input == string.Empty) throw new ArgumentNullException();
@@ -380,6 +382,7 @@ namespace Math
         /// <param name="inputA">dividend</param>
         /// <param name="inputB">divisor</param>
         /// <returns>Dividend divided by divisor.</returns>
+        /// <exception cref="DivideByZeroException">When the inputB is zero.</exception>
         public static double Divide(double inputA, double inputB)
         {
             if (inputB == 0) throw new DivideByZeroException();
@@ -431,6 +434,7 @@ namespace Math
         /// <param name="input">Base number</param>
         /// <param name="exponent">Exponent</param>
         /// <returns>Base number raised to the exponent.</returns>
+        /// <exception cref="NotFiniteNumberException">When the result is not a valid number.</exception>
         public static double Power(double input, double exponent)
         {
             double result = System.Math.Pow(input, exponent);
@@ -445,6 +449,7 @@ namespace Math
         /// <param name="radicand">number</param>
         /// <param name="index">index</param>
         /// <returns>Index-th root of the number.</returns>
+        /// <exception cref="ArithmeticException">When the index is 0 or even in combination with negative radicant.</exception>
         public static double Root(double radicand, double index)
         {
             if (index == 0 || index % 2 == 0 && radicand < 0) throw new ArithmeticException();
@@ -458,6 +463,7 @@ namespace Math
         /// </summary>
         /// <param name="input">number</param>
         /// <returns>Base 10 logarithm of the number.</returns>
+        /// <exception cref="NotFiniteNumberException">WHen the result is not a valid number.</exception>
         public static double Logarithm(double input)
         {
             double result = System.Math.Log10(input);
