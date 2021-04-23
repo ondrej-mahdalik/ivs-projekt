@@ -4,14 +4,14 @@ namespace GUI
     partial class MainWindow
     {
         /// <summary>
-        /// Vyžaduje se proměnná návrháře.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Uvolněte všechny používané prostředky.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">hodnota true, když by se měl spravovaný prostředek odstranit; jinak false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,11 +21,11 @@ namespace GUI
             base.Dispose(disposing);
         }
 
-        #region Kód generovaný Návrhářem Windows Form
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Metoda vyžadovaná pro podporu Návrháře - neupravovat
-        /// obsah této metody v editoru kódu.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -62,9 +62,9 @@ namespace GUI
             this.btnClosing = new System.Windows.Forms.Button();
             this.btnAbs = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.stayOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnStayOnTop = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -224,7 +224,7 @@ namespace GUI
             this.btnPaste.Tag = "";
             this.btnPaste.Text = "Paste";
             this.btnPaste.UseVisualStyleBackColor = false;
-            this.btnPaste.Click += new System.EventHandler(this.BtnPaste_Click);
+            this.btnPaste.Click += new System.EventHandler(this.BtnPasteClick);
             // 
             // btnCopy
             // 
@@ -242,7 +242,7 @@ namespace GUI
             this.btnCopy.Tag = "";
             this.btnCopy.Text = "Copy";
             this.btnCopy.UseVisualStyleBackColor = false;
-            this.btnCopy.Click += new System.EventHandler(this.BtnCopy_Click);
+            this.btnCopy.Click += new System.EventHandler(this.BtnCopyClick);
             // 
             // btnFactorial
             // 
@@ -312,7 +312,7 @@ namespace GUI
             this.btnClear.TabStop = false;
             this.btnClear.Text = "C";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.BtnClear);
+            this.btnClear.Click += new System.EventHandler(this.BtnClearClick);
             // 
             // btnNum0
             // 
@@ -367,7 +367,7 @@ namespace GUI
             this.btnEnter.Tag = "";
             this.btnEnter.Text = "=";
             this.btnEnter.UseVisualStyleBackColor = false;
-            this.btnEnter.Click += new System.EventHandler(this.BtnEnter);
+            this.btnEnter.Click += new System.EventHandler(this.BtnEnterClick);
             // 
             // btnAdd
             // 
@@ -663,9 +663,9 @@ namespace GUI
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.stayOnTopToolStripMenuItem});
+            this.btnAbout,
+            this.btnHelp,
+            this.btnStayOnTop});
             this.menuStrip1.Location = new System.Drawing.Point(28, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -673,30 +673,30 @@ namespace GUI
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // toolStripMenuItem1
+            // btnAbout
             // 
-            this.toolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(52, 20);
-            this.toolStripMenuItem1.Text = "About";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
+            this.btnAbout.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(52, 20);
+            this.btnAbout.Text = "About";
+            this.btnAbout.Click += new System.EventHandler(this.BtnAboutClick);
             // 
-            // toolStripMenuItem2
+            // btnHelp
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 20);
-            this.toolStripMenuItem2.Text = "Help";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.btnHelp.Size = new System.Drawing.Size(44, 20);
+            this.btnHelp.Text = "Help";
+            this.btnHelp.Click += new System.EventHandler(this.BtnHelpClick);
             // 
-            // stayOnTopToolStripMenuItem
+            // btnStayOnTop
             // 
-            this.stayOnTopToolStripMenuItem.CheckOnClick = true;
-            this.stayOnTopToolStripMenuItem.Name = "stayOnTopToolStripMenuItem";
-            this.stayOnTopToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.stayOnTopToolStripMenuItem.Text = "Stay on Top";
-            this.stayOnTopToolStripMenuItem.ToolTipText = "The window will stay above others even when not focused.";
-            this.stayOnTopToolStripMenuItem.CheckedChanged += new System.EventHandler(this.stayOnTopToolStripMenuItem_CheckedChanged);
+            this.btnStayOnTop.CheckOnClick = true;
+            this.btnStayOnTop.Name = "btnStayOnTop";
+            this.btnStayOnTop.Size = new System.Drawing.Size(80, 20);
+            this.btnStayOnTop.Text = "Stay on Top";
+            this.btnStayOnTop.ToolTipText = "The window will stay above others even when not focused.";
+            this.btnStayOnTop.CheckedChanged += new System.EventHandler(this.BtnStayOnTopCheckedChanged);
             // 
             // MainWindow
             // 
@@ -749,14 +749,14 @@ namespace GUI
         private System.Windows.Forms.Button btnAbs;
         private System.Windows.Forms.Button btnBackspace;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem btnAbout;
+        private System.Windows.Forms.ToolStripMenuItem btnHelp;
         private System.Windows.Forms.Button btnPi;
         private System.Windows.Forms.Button btnPaste;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnFactorial;
         private System.Windows.Forms.Button btnPower;
-        private System.Windows.Forms.ToolStripMenuItem stayOnTopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnStayOnTop;
     }
 }
 

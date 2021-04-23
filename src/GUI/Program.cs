@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
 
+/// <summary>
+///     User-friendly graphic interface for the Math library.
+/// </summary>
 namespace GUI
 {
+    /// <summary>
+    ///     Main class of the Program.
+    /// </summary>
     internal static class Program
     {
         /// <summary>
-        ///     Hlavní vstupní bod aplikace.
+        ///     Main application method.
         /// </summary>
         [STAThread]
         private static void Main()

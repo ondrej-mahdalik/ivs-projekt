@@ -6,15 +6,27 @@ using Math;
 
 namespace GUI
 {
+    /// <summary>
+    ///     Main window of the application.
+    ///     Contains the interface to control all calculator functions.
+    /// </summary>
     public partial class MainWindow : Form
     {
         private bool writeEnabled = true;
 
+        /// <summary>
+        ///     Constructor, initializes form components.
+        ///     Use .Show() to display the form.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        ///     Function that handles all "generic" button clicks.
+        ///     Called by the OnClick event of the respective buttons.
+        /// </summary>
         private void BtnClick(object sender, EventArgs e)
         {
             if (writeEnabled)
@@ -24,7 +36,11 @@ namespace GUI
             btnEnter.Focus();
         }
 
-        private void BtnClear(object sender, EventArgs e)
+        /// <summary>
+        ///     Function for cleaning the expression box.
+        ///     Called by the OnClick event of the btnClear button.
+        /// </summary>
+        private void BtnClearClick(object sender, EventArgs e)
         {
             txtResult.Text = "";
             writeEnabled = true;
@@ -33,7 +49,11 @@ namespace GUI
             btnEnter.Focus();
         }
 
-        private void BtnEnter(object sender, EventArgs e)
+        /// <summary>
+        ///     Function for sending the current expression to the Math library.
+        ///     Called by the OnClick event of the btnEnter button.
+        /// </summary>
+        private void BtnEnterClick(object sender, EventArgs e)
         {
             string result = "";
             try {
@@ -51,6 +71,85 @@ namespace GUI
             btnEnter.Focus();
         }
 
+        /// <summary>
+        ///     Function for copying the expression to clipboard.
+        ///     Called by the OnClick event of the btnCopy button.
+        /// </summary>
+        private void BtnCopyClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtResult.Text);
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
+        }
+
+        /// <summary>
+        ///     Function for pasting expression from clipboard.
+        ///     Called by the OnClick event of the btnPaste button.
+        /// </summary>
+        private void BtnPasteClick(object sender, EventArgs e)
+        {
+            if (writeEnabled)
+                txtResult.Text += Clipboard.GetText();
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
+        }
+
+        /// <summary>
+        ///     Function for removing last character in the expression.
+        ///     Called by the OnClick event of btnBackspace button.
+        /// </summary>
+        private void BtnBackspaceClick(object sender, EventArgs e)
+        {
+            if (writeEnabled && txtResult.Text.Length > 0)
+                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+
+            // Focus on result key to enable calculating result with Enter key
+            btnEnter.Focus();
+        }
+
+        /// <summary>
+        ///     Opens new Help window.
+        ///     Does not check if there is a Help Window already opened,
+        ///     therefore it's possible to have multiple Help windows opened.
+        ///     Called by the OnClick event of the btnHelp button.
+        /// </summary>
+        private void BtnHelpClick(object sender, EventArgs e)
+        {
+            new HelpWindow().Show();
+        }
+
+        /// <summary>
+        ///     Opens new About window.
+        ///     Does not check if there is an About window already opened,
+        ///     therefore it's possible to have multiple About windows opened.
+        ///     Called by the OnClick event of the btnAbout button.
+        /// </summary>
+        private void BtnAboutClick(object sender, EventArgs e)
+        {
+            new AboutWindow().Show();
+        }
+
+        /// <summary>
+        ///     Stay on top switch
+        ///     When called, checks for the btnStayOnTop button's Checked status
+        ///     and sets the TopMost feature's value accordingly.
+        /// </summary>
+        private void BtnStayOnTopCheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = btnStayOnTop.Checked;
+
+            if (btnStayOnTop.Checked)
+                btnStayOnTop.ForeColor = Color.ForestGreen;
+            else
+                btnStayOnTop.ForeColor = default;
+        }
+
+        /// <summary>
+        ///     Function for handling key presses.
+        ///     Provides keyboard support for the UI.
+        /// </summary>
         private void HandleKeyPress(object sender, KeyEventArgs e)
         {
             // Ctrl + C
@@ -169,51 +268,6 @@ namespace GUI
                     btnDivide.PerformClick();
                     break;
             }
-        }
-
-        private void BtnBackspaceClick(object sender, EventArgs e)
-        {
-            if (writeEnabled && txtResult.Text.Length > 0)
-                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
-
-            // Focus on result key to enable calculating result with Enter key
-            btnEnter.Focus();
-        }
-
-        private void BtnCopy_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(txtResult.Text);
-
-            // Focus on result key to enable calculating result with Enter key
-            btnEnter.Focus();
-        }
-
-        private void BtnPaste_Click(object sender, EventArgs e)
-        {
-            if (writeEnabled)
-                txtResult.Text += Clipboard.GetText();
-
-            // Focus on result key to enable calculating result with Enter key
-            btnEnter.Focus();
-        }
-
-        private void ToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            new HelpWindow().Show();
-        }
-
-        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            new AboutWindow().Show();
-        }
-
-        private void stayOnTopToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            TopMost = stayOnTopToolStripMenuItem.Checked;
-            if (stayOnTopToolStripMenuItem.Checked)
-                stayOnTopToolStripMenuItem.ForeColor = Color.ForestGreen;
-            else
-                stayOnTopToolStripMenuItem.ForeColor = default;
         }
     }
 }
