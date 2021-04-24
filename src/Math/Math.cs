@@ -22,11 +22,8 @@ namespace Math
         {
             switch (ch) {
                 case '-':
-                    return 0;
-                case '+'
-                    : // Addition could have the same precedence as subtraction, but this way it corresponds to the way most people (and online tools) would perform the conversion (doesn't change the results)
+                case '+' :
                     return 1;
-
                 case '*':
                 case '/':
                     return 3;
@@ -49,7 +46,7 @@ namespace Math
         public static string InfixToPostfix(string input)
         {
             Stack<char> stack = new Stack<char>();
-            IList<char> operators = new List<char> { '-', '+', '*', '/', '^' }; //List of supported operators
+            IList<char> operators = new List<char> { '-', '+', '*', '/', '^', '!' }; //List of supported operators
 
             if (input.Split('(').Length != input.Split(')').Length) // Check if all brackets were closed
                 throw new FormatException("Not all brackets were closed or opened");
@@ -430,11 +427,10 @@ namespace Math
         /// <exception cref="ArgumentOutOfRangeException">When input is not nonnegative integer.</exception>
         public static double Factorial(double input)
         {
-            if (input < 0.0 || input % 1 != 0.0) throw new ArgumentOutOfRangeException("Unsupported operation");
-            ulong result = 1;
-            for (ulong i = 2; i <= input; i++)
-                result = checked(result *
-                                 i); // checked keyword - checks for overflow and in case of overflow throws a Run-time exception
+            if (input < 0.0 || input % 1 != 0.0 || input > 170) throw new Exception("Unsupported operation");
+            double result = 1;
+            for (double i = 2; i <= input; i++)
+                result = (result * i);
             return result;
         }
 
