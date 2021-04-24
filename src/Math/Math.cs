@@ -46,7 +46,7 @@ namespace Math
         public static string InfixToPostfix(string input)
         {
             Stack<char> stack = new Stack<char>();
-            IList<char> operators = new List<char> { '-', '+', '*', '/', '^' }; //List of supported operators
+            IList<char> operators = new List<char> { '-', '+', '*', '/', '^', '!' }; //List of supported operators
 
             if (input.Split('(').Length != input.Split(')').Length) // Check if all brackets were closed
                 throw new FormatException("Not all brackets were closed or opened");
