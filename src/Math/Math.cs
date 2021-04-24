@@ -430,11 +430,10 @@ namespace Math
         /// <exception cref="ArgumentOutOfRangeException">When input is not nonnegative integer.</exception>
         public static double Factorial(double input)
         {
-            if (input < 0.0 || input % 1 != 0.0) throw new ArgumentOutOfRangeException("Unsupported operation");
-            ulong result = 1;
-            for (ulong i = 2; i <= input; i++)
-                result = checked(result *
-                                 i); // checked keyword - checks for overflow and in case of overflow throws a Run-time exception
+            if (input < 0.0 || input % 1 != 0.0 || input > 170) throw new Exception("Unsupported operation");
+            double result = 1;
+            for (double i = 2; i <= input; i++)
+                result = (result * i);
             return result;
         }
 

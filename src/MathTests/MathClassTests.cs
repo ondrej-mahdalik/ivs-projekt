@@ -64,9 +64,10 @@ namespace Math.Tests
             double[] firstNums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
             double[] results = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
             for (int i = 0; i < firstNums.Length; i++) Assert.AreEqual(results[i], MathClass.Factorial(firstNums[i]));
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(-4));
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(2.46));
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => MathClass.Factorial(-6.8));
+            Assert.ThrowsException<Exception>(() => MathClass.Factorial(-4));
+            Assert.ThrowsException<Exception>(() => MathClass.Factorial(2.46));
+            Assert.ThrowsException<Exception>(() => MathClass.Factorial(-6.8));
+            Assert.ThrowsException<Exception>(() => MathClass.Factorial(999));
         }
 
         [TestMethod]
