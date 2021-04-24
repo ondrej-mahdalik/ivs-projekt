@@ -22,11 +22,8 @@ namespace Math
         {
             switch (ch) {
                 case '-':
-                    return 0;
-                case '+'
-                    : // Addition could have the same precedence as subtraction, but this way it corresponds to the way most people (and online tools) would perform the conversion (doesn't change the results)
+                case '+' :
                     return 1;
-
                 case '*':
                 case '/':
                     return 3;
