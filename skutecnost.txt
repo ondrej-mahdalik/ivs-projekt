@@ -1,9 +1,9 @@
 Rozdíly termínů
 --------------
 19. 3. - Splněno
-26. 3. - Všechno krom některých GUI prvků splněno
+26. 3. - Všechno kromě některých GUI prvků splněno
 9. 4. - Částečně splněno
-16. 4. Instalátor splněn
+16. 4. - Instalátor splněn
 přidán termín 23. 4. - Finální dokumentace, opravy chyb - splněno
 
 Schůzky proběhly podle plánu, t.j. každý pátek v 16:00 za účasti všech členů týmu.
