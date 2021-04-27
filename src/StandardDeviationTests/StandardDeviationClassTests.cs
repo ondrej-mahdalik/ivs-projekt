@@ -12,10 +12,10 @@ namespace StandardDeviationTests
         {
             //Testing basic parsing
             string input = "1 2 3 4 5 6 7 8 9 10 ";
-            double[] expected = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            double[] expected = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             CollectionAssert.AreEqual(expected, StandardDeviationClass.GetNumbersFromString(input));
             input = "455.564 -26.4871345 -0.974 410001.05 -248764.145 ";
-            double[] expected2 = {455.564, -26.4871345, -0.974, 410001.05, -248764.145};
+            double[] expected2 = { 455.564, -26.4871345, -0.974, 410001.05, -248764.145 };
             CollectionAssert.AreEqual(expected2, StandardDeviationClass.GetNumbersFromString(input));
 
             //Testing field separators
@@ -38,7 +38,7 @@ namespace StandardDeviationTests
         [TestMethod]
         public void CountDeviationTest()
         {
-            double[] basicInput = {25.062, -97.542, 129.8721, 17546.4523, -500.07, -780.45};
+            double[] basicInput = { 25.062, -97.542, 129.8721, 17546.4523, -500.07, -780.45 };
             double expected = 7271.254131903278;
 
             Assert.AreEqual(expected, StandardDeviationClass.CountStandardDeviation(basicInput));
@@ -56,13 +56,13 @@ namespace StandardDeviationTests
                 cnt++;
             }
 
-            expected = 3298.9430187987136;
+            expected = 3299.309348465316;
             Assert.AreEqual(expected, StandardDeviationClass.CountStandardDeviation(inputs2));
 
             double[] onlyOneInput = new double[1];
             onlyOneInput[0] = -2445.56756;
             Assert.ThrowsException<DivideByZeroException>(() =>
-                StandardDeviationClass.CountStandardDeviation(onlyOneInput));
+            StandardDeviationClass.CountStandardDeviation(onlyOneInput));
         }
     }
 }
