@@ -1,0 +1,5 @@
+For profiling we used JetBeans dotTrace extantion 
+
+As you can see on Prof1000.png most of the time is spent on getting string to double.
+On Prof1000b.png you can see calls for User code. Again most of the time is spend processing input
+Same applies for 100 and 10 numbers. 

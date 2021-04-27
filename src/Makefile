@@ -5,26 +5,34 @@ all: run
 
 
 Pack: clean packfolder
-	cd ..\.. && zip -r $@ xmahda14_xdenka00_xvacla35_xvrana29
+	cd ..\.. && 7z a -tzip xmahda14_xdenka00_xvacla35_xvrana29.zip xmahda14_xdenka00_xvacla35_xvrana29
 
 
 packfolder:
 	mkdir ..\..\xmahda14_xdenka00_xvacla35_xvrana29\repo
 	mkdir ..\..\xmahda14_xdenka00_xvacla35_xvrana29\installer
 	mkdir ..\..\xmahda14_xdenka00_xvacla35_xvrana29\docs
-	copy -a ..\..\ivs-projekt ..\..\xmahda14_xdenka00_xvacla35_xvrana29\repo\
-	copy -a ..\installer\. ..\..\xmahda14_xdenka00_xvacla35_xvrana29\installer\
-	copy -a docs\. ..\..\xmahda14_xdenka00_xvacla35_xvrana29\docs
-	copy docs\latex\refman.pdf ..\dokumentace.pdf
+	cd ..\.. && xcopy ivs-projekt xmahda14_xdenka00_xvacla35_xvrana29\repo /s /q /y
+	cd .. && xcopy install ..\xmahda14_xdenka00_xvacla35_xvrana29\installer /s /q /y
+	cd .. && xcopy docs ..\xmahda14_xdenka00_xvacla35_xvrana29\docs /s /q /y
+	
 
 clean:
-	del /F /Q /P GUI\bin gui\obj Math\bin Math\obj MathTest\bin MathTest\obj StandardDeviationTests\bin StandardDeviationTests\obj ..\..\xmahda14_xdenka00_xvacla35_xvrana29
+	if exist GUI\bin rmdir /q /s GUI\bin 
+	if exist GUI\obj rmdir /q /s gui\obj 
+	if exist Math\bin rmdir /q /s Math\bin 
+	if exist Math\obj rmdir /q /s Math\obj 
+	if exist MathTest\bin rmdir /p /s MathTest\bin 
+	if exist MathTest\obj rmdir /q /s MathTest\obj 
+	if exist StandardDeviationTest\bin rmdir /q /s StandardDeviationTests\bin 
+	if exist StandardDeviationTest\obj rmdir /q /s StandardDeviationTests\obj 
+	if exist ..\..\xmahda14_xdenka00_xvacla35_xvrana29 rmdir /q /s ..\..\xmahda14_xdenka00_xvacla35_xvrana29 	
 
 run: 
 	cd ..\install\ && .\setup.exe
 
 profile:
-	cd src\StandardDeviation\bin\Debug\netcoreapp3.1 && \.StandardDeviation < data.txt
+	cd StandardDeviation\bin\Release\netcoreapp3.1 && .\StandardDeviation < data.txt
 
 help:
 	echo "To run our calculator you need to run setup.exe in /installer or you can use make run."
