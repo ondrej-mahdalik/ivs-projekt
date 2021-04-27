@@ -2,4 +2,4 @@ We used JetBeans dotTrace extension for profiling.
 
 As you can see in Prof1000.png, the program spends most of the time getting the string to double.
 In Prof1000b.png you can see calls for User code. Again most of the time is spent processing input
-Same applies for 100 and 10 numbers. 
+The same applies for 100 and 10 numbers. 
