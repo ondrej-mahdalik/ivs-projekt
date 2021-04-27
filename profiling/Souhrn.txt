@@ -1,4 +1,4 @@
-For profiling we used JetBeans dotTrace extantion 
+We used JetBeans dotTrace extension for profiling.
 
 As you can see is Prof1000.png, the program spends most of the time on getting the string to double.
 In Prof1000b.png you can see calls for User code. Again most of the time is spent processing input
