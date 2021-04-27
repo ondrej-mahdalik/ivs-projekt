@@ -62,7 +62,7 @@ namespace StandardDeviationTests
             double[] onlyOneInput = new double[1];
             onlyOneInput[0] = -2445.56756;
             Assert.ThrowsException<DivideByZeroException>(() =>
-            StandardDeviationClass.CountStandardDeviation(onlyOneInput));
+                StandardDeviationClass.CountStandardDeviation(onlyOneInput));
         }
 
         [TestMethod]
@@ -91,7 +91,7 @@ namespace StandardDeviationTests
             double[] onlyOneInput = new double[1];
             onlyOneInput[0] = -2445.56756;
             Assert.ThrowsException<DivideByZeroException>(() =>
-            StandardDeviationClass.CountStandardDeviationUsingFromString(onlyOneInput));
+                StandardDeviationClass.CountStandardDeviationUsingFromString(onlyOneInput));
 
         }
     }
