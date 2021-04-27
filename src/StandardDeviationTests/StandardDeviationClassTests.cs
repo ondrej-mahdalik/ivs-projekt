@@ -64,5 +64,35 @@ namespace StandardDeviationTests
             Assert.ThrowsException<DivideByZeroException>(() =>
             StandardDeviationClass.CountStandardDeviation(onlyOneInput));
         }
+
+        [TestMethod]
+        public void CountDeviationUsingFromStringTest()
+        {
+            double[] basicInput = { 25.062, -97.542, 129.8721, 17546.4523, -500.07, -780.45 };
+            double expected = 7271.254131903279;
+
+            Assert.AreEqual(expected, StandardDeviationClass.CountStandardDeviationUsingFromString(basicInput));
+
+            double[] inputs = new double[100];
+            double cnt = 1;
+            for (int i = 0; i < inputs.Length; i++) inputs[i] = cnt++;
+            expected = 29.01149197588202;
+            Assert.AreEqual(expected, StandardDeviationClass.CountStandardDeviationUsingFromString(inputs));
+            double[] inputs2 = new double[1000];
+            cnt = -5568.458;
+            for (int i = 0; i < inputs2.Length; i++) {
+                inputs2[i] = cnt + cnt / 7;
+                cnt++;
+            }
+
+            expected = 330.07935553812905;
+            Assert.AreEqual(expected, StandardDeviationClass.CountStandardDeviationUsingFromString(inputs2));
+
+            double[] onlyOneInput = new double[1];
+            onlyOneInput[0] = -2445.56756;
+            Assert.ThrowsException<DivideByZeroException>(() =>
+            StandardDeviationClass.CountStandardDeviationUsingFromString(onlyOneInput));
+
+        }
     }
 }
