@@ -77,7 +77,8 @@ namespace GUI
         /// </summary>
         private void BtnCopyClick(object sender, EventArgs e)
         {
-            Clipboard.SetText(txtResult.Text);
+            if (txtResult.Text.Length > 0)
+                Clipboard.SetText(txtResult.Text);
 
             // Focus on result key to enable calculating result with Enter key
             btnEnter.Focus();
