@@ -260,7 +260,7 @@ namespace Math
         /// <param name="input">Expression to proccess</param>
         /// <returns>Result of given mathematical expression.</returns>
         /// <exception cref="FormatException">When expression is in invalid format uses unsupported operators, functions or constants.</exception>
-        /// <exception cref="ArgumentNullException"> When no expression is provided.</exception>
+        /// <exception cref="ArgumentNullException">When no expression is provided.</exception>
         public static double FromString(string input)
         {
             if (input == string.Empty) throw new ArgumentNullException();
