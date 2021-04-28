@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Globalization;
 
 /// <summary>
 ///     User-friendly graphic interface for the Math library.
@@ -17,6 +18,10 @@ namespace GUI
         [STAThread]
         private static void Main()
         {
+            // To show English exception messages.
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
