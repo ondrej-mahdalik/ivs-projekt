@@ -55,6 +55,10 @@ namespace GUI
         /// </summary>
         private void BtnEnterClick(object sender, EventArgs e)
         {
+            // To only calculate result when there is an expression to be calculated.
+            if (string.IsNullOrWhiteSpace(txtResult.Text))
+                return;
+
             string result = "";
             try {
                 result = MathClass.FromString(txtResult.Text).ToString(CultureInfo.InvariantCulture);
