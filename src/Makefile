@@ -15,7 +15,7 @@ packfolder:
 	cd ..\.. && xcopy ivs-projekt xmahda14_xdenka00_xvacla35_xvrana29\repo /s /q /y
 	cd .. && xcopy install ..\xmahda14_xdenka00_xvacla35_xvrana29\installer /s /q /y
 	xcopy docs\html ..\..\xmahda14_xdenka00_xvacla35_xvrana29\docs\HTML /s /q /y
-	cd .. && xcopy Dokumentace.pdf ..\xmahda14_xdenka00_xvacla35_xvrana29\docs /s /q /y
+	xcopy docs\Dokumentace.pdf ..\..\xmahda14_xdenka00_xvacla35_xvrana29\docs /s /q /y
 	
 
 clean:
