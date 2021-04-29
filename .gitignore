@@ -345,7 +345,7 @@ healthchecksdb
 # Doxygen
 src/[Dd]ocs/*/
 src/[Dd]ocs/*.pdf
-/Dokumentace.pdf
+*.pdf
 
 # InnoSetup
 setup.exe
