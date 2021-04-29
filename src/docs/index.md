@@ -1,5 +1,5 @@
 # Calculator Library & App
-This set of math library, GUI, standard deviation and their tests was created as IVS project in 2021.
+This set of Math library, GUI, StandardDeviation and their tests was created as an IVS project in 2021.
 
 ### Authors
 - xmahda14 - Ondřej Mahdalík
@@ -19,7 +19,7 @@ A calculator app that makes use of all math library's functions, supports keyboa
 
 ### Installation
 You can either use installator or install the application manually.
-Instructions for manual instalation are in a separate file called **manual (un)installation.pdf**.
+Instructions for manual instalation are in a separate file called **Manual (un)installation.pdf**.
 
 1. Navigate to the Installer directory and run **setup.exe**
 2. Read and accept the License Agreement

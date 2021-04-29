@@ -343,8 +343,8 @@ ASALocalRun/
 healthchecksdb
 
 # Doxygen
-src/Docs/*/
-src/Docs/*.pdf
+src/[Dd]ocs/*/
+src/[Dd]ocs/*.pdf
 
 # InnoSetup
 setup.exe
