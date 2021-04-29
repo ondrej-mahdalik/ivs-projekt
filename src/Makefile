@@ -18,6 +18,8 @@ packfolder:
 	
 
 clean:
+	if exist docs\html rmdir /q /s docs\html
+	if exist docs\latex rmdir /q /s docs\latex
 	if exist GUI\bin rmdir /q /s GUI\bin 
 	if exist GUI\obj rmdir /q /s gui\obj 
 	if exist Math\bin rmdir /q /s Math\bin 
